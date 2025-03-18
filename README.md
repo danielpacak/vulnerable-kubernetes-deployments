@@ -11,7 +11,7 @@ deployments instead of Docker Compose services.
 Deploy a vulnerable pgAdmin:
 
 ```
-k apply -f python/CVE-2023-5002/all.yaml
+k apply -f python/pgadmin/CVE-2023-5002/all.yaml
 ```
 
 ```
@@ -23,7 +23,7 @@ Open http://localhost:5050 in your web browser to access pgAdmin console.
 > Uninstall pgAdmin with:
 >
 > ```
-> k delete -f python/CVE-2023-5002/all.yaml
+> k delete -f python/pgadmin/CVE-2023-5002/all.yaml
 > ```
 
 ## Contributing

@@ -1,0 +1,68 @@
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: vulnerable-flask-ssti
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: source-code
+  namespace: vulnerable-flask-ssti
+data:
+  app.py: |
+    from flask import Flask, request
+    from jinja2 import Template
+
+    app = Flask(__name__)
+
+    @app.route("/")
+    def index():
+        name = request.args.get('name', 'guest')
+
+        t = Template("Hello " + name)
+        return t.render()
+
+    if __name__ == "__main__":
+        app.run()
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: flask
+  namespace: vulnerable-flask-ssti
+spec:
+  selector:
+    app: flask
+  ports:
+    - protocol: TCP
+      port: 8000
+      targetPort: 8000
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flask
+  namespace: vulnerable-flask-ssti
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: flask
+  template:
+    metadata:
+      labels:
+        app: flask
+    spec:
+      containers:
+        - name: flask
+          image: docker.io/vulhub/flask:1.1.1@sha256:20d202d35fe99818878a3f844362210a21894bfab57b8acf23dfa3ade9a87026
+          ports:
+            - containerPort: 8000
+          volumeMounts:
+            - name: source-code
+              mountPath: /app
+      volumes:
+        - name: source-code
+          configMap:
+            name: source-code
