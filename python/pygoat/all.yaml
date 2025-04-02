@@ -1,0 +1,39 @@
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: pygoat
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: pygoat
+  namespace: pygoat
+spec:
+  selector:
+    app: pygoat
+  ports:
+    - protocol: TCP
+      port: 8000
+      targetPort: 8000
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pygoat
+  namespace: pygoat
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pygoat
+  template:
+    metadata:
+      labels:
+        app: pygoat
+    spec:
+      containers:
+        - name: pygoat
+          image: pygoat/pygoat:latest
+          ports:
+            - containerPort: 8000
