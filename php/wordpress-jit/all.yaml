@@ -2,13 +2,13 @@
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: wordpress
+  name: wordpress-jit
 ---
 apiVersion: v1
 kind: Service
 metadata:
   name: wordpress-db
-  namespace: wordpress
+  namespace: wordpress-jit
 spec:
   selector:
     app: wordpress-db
@@ -21,7 +21,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: wordpress-db
-  namespace: wordpress
+  namespace: wordpress-jit
 spec:
   replicas: 1
   selector:
@@ -57,7 +57,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: wordpress
-  namespace: wordpress
+  namespace: wordpress-jit
 spec:
   selector:
     app: wordpress
@@ -66,11 +66,24 @@ spec:
       port: 8080
       targetPort: 80
 ---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: config
+  namespace: wordpress-jit
+data:
+  opcache.jit.ini: |
+    opcache.enable=1
+    opcache.enable_cli=1
+    opcache.jit=function
+    opcache.jit_buffer_size=64M
+    opcache.jit_debug=0x10
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: wordpress
-  namespace: wordpress
+  namespace: wordpress-jit
 spec:
   replicas: 1
   selector:
@@ -83,7 +96,7 @@ spec:
     spec:
       containers:
         - name: wordpress
-          image: docker.io/library/wordpress:6.8-php8.1
+          image: docker.io/library/wordpress:6.8-php8.1-jit
           imagePullPolicy: IfNotPresent
           env:
             - name: WORDPRESS_DB_HOST
@@ -99,6 +112,12 @@ spec:
           volumeMounts:
             - name: data
               mountPath: /var/www/html
+            - name: config
+              mountPath: /usr/local/etc/php/conf.d/opcache.jit.ini
+              subPath: opcache.jit.ini
       volumes:
         - name: data
           emptyDir: {}
+        - name: config
+          configMap:
+            name: config
