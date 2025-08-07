@@ -1,0 +1,63 @@
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: pgadmin
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: pgadmin
+  namespace: pgadmin
+spec:
+  selector:
+    app: pgadmin
+  ports:
+    - protocol: TCP
+      port: 5050
+      targetPort: 5050
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pgadmin
+  namespace: pgadmin
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pgadmin
+  template:
+    metadata:
+      labels:
+        app: pgadmin
+    spec:
+      containers:
+        - name: pgadmin
+          image: docker.io/dpage/pgadmin4:9.6.0
+          env:
+            - name: PGADMIN_LISTEN_PORT
+              value: "5050"
+            - name: PGADMIN_DEFAULT_EMAIL
+              value: vulhub@example.com
+            - name: PGADMIN_DEFAULT_PASSWORD
+              value: vulhub
+          ports:
+            - containerPort: 5050
+          volumeMounts:
+            - name: data
+              mountPath: /var/lib/pgadmin
+            - name: logs
+              mountPath: /var/log/pgadmin
+#          resources:
+#            requests:
+#              cpu: 0.2m
+#              memory: 256Mi
+#            limits:
+#              cpu: 0.5m
+#              memory: 512Mi
+      volumes:
+        - name: data
+          emptyDir: {}
+        - name: logs
+          emptyDir: {}
