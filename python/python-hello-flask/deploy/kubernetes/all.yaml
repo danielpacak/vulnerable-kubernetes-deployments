@@ -16,9 +16,9 @@ spec:
   selector:
     app: python-hello-flask
   ports:
-  - port: 5050
-    protocol: TCP
-    targetPort: 5050
+    - port: 5050
+      protocol: TCP
+      targetPort: 5050
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -38,13 +38,19 @@ spec:
         app: python-hello-flask
     spec:
       containers:
-      - name: python-hello-flask
-        image: docker.io/library/python-hello-flask:latest
-        imagePullPolicy: IfNotPresent
-        env:
-          - name: HELLO_FLASK_MEMORY_BYTES
-            value: "512"
-          - name: HELLO_FLASK_DYNAMIC_RULES_COUNT
-            value: "10"
-        ports:
-        - containerPort: 5050
+        - name: python-hello-flask
+          image: docker.io/library/python-hello-flask:latest
+          imagePullPolicy: IfNotPresent
+          env:
+            - name: HELLO_FLASK_MEMORY_BYTES
+              value: "512"
+            - name: HELLO_FLASK_DYNAMIC_RULES_COUNT
+              value: "10"
+          ports:
+            - containerPort: 5050
+          livenessProbe:
+            initialDelaySeconds: 3
+            periodSeconds: 10
+            httpGet:
+              path: /health
+              port: 5050

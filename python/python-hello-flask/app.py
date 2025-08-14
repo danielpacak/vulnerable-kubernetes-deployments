@@ -24,6 +24,7 @@ def index():
 
 @app.route("/hello", methods=["GET", "POST"])
 def hello():
+    logger.debug("Handling /hello request")
     return "<p>" + my_service_function() + "</p>"
 
 
@@ -39,6 +40,12 @@ def login():
         return do_the_login()
     else:
         return show_the_login_form()
+
+
+@app.route("/health")
+def health_check():
+    logger.debug("Handling /health request")
+    return "OK", 200
 
 
 # Simulate that we do allocate quite some memory. We can make it more
