@@ -1,0 +1,50 @@
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: python-hello-flask
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: python-hello-flask
+  namespace: python-hello-flask
+  labels:
+    app: python-hello-flask
+spec:
+  type: ClusterIP
+  selector:
+    app: python-hello-flask
+  ports:
+  - port: 5050
+    protocol: TCP
+    targetPort: 5050
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: python-hello-flask
+  namespace: python-hello-flask
+  labels:
+    app: python-hello-flask
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: python-hello-flask
+  template:
+    metadata:
+      labels:
+        app: python-hello-flask
+    spec:
+      containers:
+      - name: python-hello-flask
+        image: docker.io/library/python-hello-flask:latest
+        imagePullPolicy: IfNotPresent
+        env:
+          - name: HELLO_FLASK_MEMORY_BYTES
+            value: "512"
+          - name: HELLO_FLASK_DYNAMIC_RULES_COUNT
+            value: "10"
+        ports:
+        - containerPort: 5050
