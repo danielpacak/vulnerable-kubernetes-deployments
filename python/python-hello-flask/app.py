@@ -1,9 +1,9 @@
 import logging
 import os
 
-from flask import Flask
+from flask import Flask, render_template, redirect, url_for
 from markupsafe import escape
-
+from prime_numbers import is_prime
 from login import do_the_login, show_the_login_form
 from service import my_service_function
 from flask import request
@@ -19,12 +19,12 @@ app = Flask(__name__)
 
 @app.route("/")
 def index():
-    return "<p>Index Page</p>"
+    return redirect(url_for("hello"))
 
 
 @app.route("/hello", methods=["GET", "POST"])
 def hello():
-    logger.debug("Handling /hello request")
+    app.logger.debug("Handling /hello request")
     return "<p>" + my_service_function() + "</p>"
 
 
@@ -40,6 +40,17 @@ def login():
         return do_the_login()
     else:
         return show_the_login_form()
+
+
+@app.route("/is_prime/<number>", methods=["GET"])
+def is_prime_route(number):
+    return f"<p>Is {number} prime number? {is_prime(int(number))}</p>"
+
+
+@app.route("/hello_template/")
+@app.route("/hello_template/<name>")
+def hello_template(name=None):
+    return render_template("hello.html", person=name)
 
 
 @app.route("/health")
