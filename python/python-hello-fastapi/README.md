@@ -68,3 +68,5 @@ docker run --name python-hello-fastapi -p 80:80 python-hello-fastapi
 * https://www.starlette.io/
 * https://fastapi.tiangolo.com/async/#in-a-hurry
 * https://fastapi.tiangolo.com/tutorial/
+* https://fastapi.tiangolo.com/deployment/docker/
+* https://github.com/astral-sh/uv-docker-example
