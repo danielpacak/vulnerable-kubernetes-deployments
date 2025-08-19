@@ -3,6 +3,8 @@ import os
 
 from flask import Flask, render_template, redirect, url_for
 from markupsafe import escape
+
+from fibonacci import fibonacci
 from prime_numbers import is_prime
 from login import do_the_login, show_the_login_form
 from service import my_service_function
@@ -45,6 +47,11 @@ def login():
 @app.route("/is_prime/<number>", methods=["GET"])
 def is_prime_route(number):
     return f"<p>Is {number} prime number? {is_prime(int(number))}</p>"
+
+
+@app.route("/fibonacci/<number>", methods=["GET"])
+def fibonacci_route(number):
+    return f"<p>Fibonacci number: {fibonacci(int(number))}</p>"
 
 
 @app.route("/hello_template/")
