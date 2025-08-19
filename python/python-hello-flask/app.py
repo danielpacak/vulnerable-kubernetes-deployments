@@ -1,5 +1,6 @@
 import logging
 import os
+import subprocess
 
 from flask import Flask, render_template, redirect, url_for
 from markupsafe import escape
@@ -58,6 +59,22 @@ def fibonacci_route(number):
 @app.route("/hello_template/<name>")
 def hello_template(name=None):
     return render_template("hello.html", person=name)
+
+
+@app.route("/linux/process/id")
+def linux_process_id():
+    completed_process = subprocess.run(["id"], capture_output=True)
+    return {
+        "return_code": completed_process.returncode,
+        "stdout": str(completed_process.stdout),
+        "stderr": str(completed_process.stderr),
+    }
+
+
+@app.route("/python/eval")
+def python_eval():
+    x = eval("__import__('subprocess').getoutput('uname -a')")
+    return {"result": str(x)}
 
 
 @app.route("/health")
