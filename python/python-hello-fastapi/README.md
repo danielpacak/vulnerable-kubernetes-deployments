@@ -1,5 +1,8 @@
 # python-hello-fastapi
 
+This app is a bunch of URL endpoints that allow running crazy insecure Python code. Don't deploy it in production unless
+you sabotage your employer.
+
 ## Development
 
 1. Create a virtual environment:

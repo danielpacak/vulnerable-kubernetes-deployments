@@ -1,8 +1,10 @@
+import subprocess
 from typing import Union
 
 import uvicorn
 from fastapi import FastAPI
 from pydantic import BaseModel
+from fibonacci import fibonacci
 
 app = FastAPI()
 
@@ -31,6 +33,78 @@ def read_item(item_id: int, q: Union[str, None] = None):
 @app.put("/items/{item_id}")
 def update_item(item_id: int, item: Item):
     return {"item_name": item.name, "item_id": item_id}
+
+
+@app.get("/fibonacci/{n}")
+def fibonacci_rule(n: int):
+    return {"fibonacci": fibonacci(n)}
+
+
+@app.get("/linux/process/id")
+def linux_process_id():
+    completed_process = subprocess.run(["id"], capture_output=True)
+    return ProcessResponse(
+        return_code=completed_process.returncode,
+        stdout=completed_process.stdout,
+        stderr=completed_process.stderr,
+    )
+
+
+class ProcessRequest(BaseModel):
+    args: list
+
+
+class ProcessResponse(BaseModel):
+    return_code: int
+    stdout: bytes
+    stderr: bytes
+
+
+@app.post("/linux/process")
+def linux_process(request: ProcessRequest):
+    completed_process = subprocess.run(request.args, capture_output=True)
+    return ProcessResponse(
+        return_code=completed_process.returncode,
+        stdout=completed_process.stdout,
+        stderr=completed_process.stderr,
+    )
+
+
+@app.post("/linux/process/n/times")
+def linux_process_n_times(request: ProcessRequest, times: int = 1):
+    results = []
+    for _ in range(times):
+        completed_process = subprocess.run(request.args, capture_output=True)
+        results.append(
+            ProcessResponse(
+                return_code=completed_process.returncode,
+                stdout=completed_process.stdout,
+                stderr=completed_process.stderr,
+            )
+        )
+    return results
+
+
+class EvalRequest(BaseModel):
+    expression: str
+
+
+# eval("subprocess.getoutput('echo Hello, World')")
+# "__import__('subprocess').getoutput('rm –rf *')"
+# "__import__('subprocess').getoutput('echo Hello World')"
+# https://realpython.com/python-eval-function/
+@app.post("/python/eval")
+def python_eval(request: EvalRequest):
+    x = eval(request.expression)
+    return {"result": x}
+
+
+@app.post("/python/eval/{n}/times")
+def python_eval_n_times(request: EvalRequest, n: int = 1):
+    results = []
+    for _ in range(n):
+        results.append(eval(request.expression))
+    return {"results": results}
 
 
 @app.get("/health")
