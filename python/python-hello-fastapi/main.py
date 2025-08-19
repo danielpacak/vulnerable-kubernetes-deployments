@@ -37,9 +37,14 @@ def update_item(item_id: int, item: Item):
 
 @app.get("/fibonacci/{n}")
 def fibonacci_rule(n: int):
+    """
+    This is a good test to see the limits of stack unwinding and eBPF,
+    not the most efficient implementation of the Fibonacci algorithm.
+    """
     return {"fibonacci": fibonacci(n)}
 
 
+# It seems that subprocess.run will use clone3 system call
 @app.get("/linux/process/id")
 def linux_process_id():
     completed_process = subprocess.run(["id"], capture_output=True)
@@ -92,6 +97,9 @@ class EvalRequest(BaseModel):
 # eval("subprocess.getoutput('echo Hello, World')")
 # "__import__('subprocess').getoutput('rm –rf *')"
 # "__import__('subprocess').getoutput('echo Hello World')"
+# "import('os').system('id')"
+# "__import__('os').system('id')" <-- this is using vfork system call
+# "__import__('subprocess').run('id')" <-- this is also using vfork system call???
 # https://realpython.com/python-eval-function/
 @app.post("/python/eval")
 def python_eval(request: EvalRequest):
