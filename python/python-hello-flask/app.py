@@ -1,8 +1,11 @@
 import logging
 import os
+import platform
 import subprocess
+import sys
 
 from flask import Flask, render_template, redirect, url_for
+import flask
 from markupsafe import escape
 
 from fibonacci import fibonacci
@@ -61,8 +64,8 @@ def hello_template(name=None):
     return render_template("hello.html", person=name)
 
 
-@app.route("/linux/process/id")
-def linux_process_id():
+@app.route("/linux/subprocess/run/id")
+def linux_subprocess_run_id_handler():
     completed_process = subprocess.run(["id"], capture_output=True)
     return {
         "return_code": completed_process.returncode,
@@ -71,16 +74,49 @@ def linux_process_id():
     }
 
 
+# clone3 -> execve
+@app.route("/python/eval/subprocess/run/id")
+def python_eval_subprocess_run_id_handler():
+    completed_process: subprocess.CompletedProcess = eval(
+        "__import__('subprocess').run(['id'], capture_output=True)"
+    )
+    return {
+        "return_code": completed_process.returncode,
+        "stdout": str(completed_process.stdout),
+        "stderr": str(completed_process.stderr),
+    }
+
+
+# vfork -> execve
+@app.get("/python/eval/os/system/id")
+def python_eval_os_system_id_handler():
+    out = eval("__import__('os').system('id')")
+    return {"stdout": out}
+
+
 @app.route("/python/eval")
-def python_eval():
-    x = eval("__import__('subprocess').getoutput('uname -a')")
-    return {"result": str(x)}
+def python_eval_handler():
+    output = eval("__import__('subprocess').getoutput('uname -a')")
+    return {"result": str(output)}
 
 
 @app.route("/health")
-def health_check():
+def health_handler():
     logger.debug("Handling /health request")
     return "OK", 200
+
+
+@app.route("/system/info")
+def system_info_handler():
+    return {
+        "system": {
+            "pid": os.getpid(),
+            "ppid": os.getppid(),
+            "sys_version_info": sys.version_info,
+            "platform_python_version": platform.python_version(),
+            "flask_version": flask.__version__,
+        }
+    }
 
 
 # Simulate that we do allocate quite some memory. We can make it more
