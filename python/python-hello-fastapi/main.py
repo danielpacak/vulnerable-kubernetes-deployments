@@ -1,5 +1,4 @@
 import subprocess
-from typing import Union
 
 import uvicorn
 from fastapi import FastAPI
@@ -9,34 +8,18 @@ from fibonacci import fibonacci
 app = FastAPI()
 
 
-class Item(BaseModel):
-    name: str
-    price: float
-    is_offer: Union[bool, None] = None
-
-
 @app.get("/")
-async def root():
+async def async_root_handler():
     return {"message": "Hello World"}
 
 
 @app.get("/hello")
-async def hello():
+async def async_hello_handler():
     return {"hello": "world"}
 
 
-@app.get("/items/{item_id}")
-def read_item(item_id: int, q: Union[str, None] = None):
-    return {"item_id": item_id, "q": q}
-
-
-@app.put("/items/{item_id}")
-def update_item(item_id: int, item: Item):
-    return {"item_name": item.name, "item_id": item_id}
-
-
-@app.get("/fibonacci/{n}")
-def fibonacci_rule(n: int):
+@app.get("/fibonacci/recursive/{n}")
+def fibonacci_recursive_handler(n: int):
     """
     This is a good test to see the limits of stack unwinding and eBPF,
     not the most efficient implementation of the Fibonacci algorithm.
@@ -65,8 +48,8 @@ class ProcessResponse(BaseModel):
     stderr: bytes
 
 
-@app.post("/linux/process")
-def linux_process(request: ProcessRequest):
+@app.post("/linux/subprocess/run")
+def linux_subprocess_run_handler(request: ProcessRequest) -> ProcessResponse:
     completed_process = subprocess.run(request.args, capture_output=True)
     return ProcessResponse(
         return_code=completed_process.returncode,
@@ -75,10 +58,10 @@ def linux_process(request: ProcessRequest):
     )
 
 
-@app.post("/linux/process/n/times")
-def linux_process_n_times(request: ProcessRequest, times: int = 1):
+@app.post("/linux/subprocess/run/{n}/times")
+def linux_subprocess_run_n_times_handler(request: ProcessRequest, n: int):
     results = []
-    for _ in range(times):
+    for _ in range(n):
         completed_process = subprocess.run(request.args, capture_output=True)
         results.append(
             ProcessResponse(
@@ -102,21 +85,33 @@ class EvalRequest(BaseModel):
 # "__import__('subprocess').run('id')" <-- this is also using vfork system call???
 # https://realpython.com/python-eval-function/
 @app.post("/python/eval")
-def python_eval(request: EvalRequest):
+def python_eval_handler(request: EvalRequest):
     x = eval(request.expression)
     return {"result": x}
 
 
 @app.post("/python/eval/{n}/times")
-def python_eval_n_times(request: EvalRequest, n: int = 1):
+def python_eval_n_times_handler(request: EvalRequest, n: int):
     results = []
     for _ in range(n):
         results.append(eval(request.expression))
     return {"results": results}
 
 
+@app.get("/python/eval/subprocess/run/id")
+def python_eval_subprocess_run_id_handler():
+    out = eval("__import__('subprocess').run('id')")
+    return {"stdout": out}
+
+
+@app.get("/python/eval/os/system/id")
+def python_eval_os_system_id_handler():
+    out = eval("__import__('os').system('id')")
+    return {"stdout": out}
+
+
 @app.get("/health")
-def health():
+def health_handler():
     return {"status": "healthy"}
 
 

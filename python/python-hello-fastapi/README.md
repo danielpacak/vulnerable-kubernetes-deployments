@@ -27,6 +27,22 @@ you sabotage your employer.
    ```
 6. Open http://127.0.0.1:8000/docs in your browser to see the automatic interactive API documentation provided by Swagger UI.
 7. Open http://127.0.0.1:8000/redoc in your browser to see the alternative automatic documentation provided by ReDoc.
+8. Use curl to hist the app harder:
+   ```
+   curl -s -X 'POST' \
+    'http://localhost:8000/linux/subprocess/run' \
+    -H 'accept: application/json' \
+    -H 'Content-Type: application/json' \
+    -d '{ "args": [ "uname", "-r" ] }' | jq
+   ```
+9. Use curl with range to hit the app even harder:
+   ```
+   curl -s -X 'POST' \
+    'http://localhost:8000/linux/subprocess/run?r=[1-200]' \
+    -H 'accept: application/json' \
+    -H 'Content-Type: application/json' \
+    -d '{ "args": [ "uname", "-r" ] }' | jq
+   ```
 
 ## Deployment
 ### Docker
