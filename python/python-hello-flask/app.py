@@ -53,9 +53,9 @@ def is_prime_route(number):
     return f"<p>Is {number} prime number? {is_prime(int(number))}</p>"
 
 
-@app.route("/fibonacci/<number>", methods=["GET"])
-def fibonacci_route(number):
-    return f"<p>Fibonacci number: {fibonacci(int(number))}</p>"
+@app.route("/fibonacci/recursive/<number>", methods=["GET"])
+def fibonacci_recursive_handler(number):
+    return {"fibonacci": fibonacci(int(number))}
 
 
 @app.route("/hello_template/")
