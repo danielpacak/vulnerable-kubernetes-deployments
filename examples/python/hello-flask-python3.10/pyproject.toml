@@ -1,9 +1,9 @@
 [project]
-name = "python-hello-flask"
+name = "hello-flask-python3.10"
 version = "0.1.0"
 description = "Descriptions are for wimps"
 readme = "README.md"
-requires-python = "==3.9.23"
+requires-python = "~=3.10.0"
 dependencies = [
     "flask>=3.1.1",
     "requests>=2.32.4",

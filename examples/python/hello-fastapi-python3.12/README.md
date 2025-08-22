@@ -1,4 +1,4 @@
-# python-hello-fastapi
+# hello-fastapi-python3.12
 
 This app is a bunch of URL endpoints that allow running crazy insecure Python code. Don't deploy it in production unless
 you sabotage your employer.
@@ -54,22 +54,23 @@ you sabotage your employer.
 > ```
 
 ```
-docker buildx build --load -t python-hello-fastapi -f Dockerfile .
+docker buildx build --load -t python-hello-fastapi:python3.12 -f Dockerfile .
 ```
 
 ```
-docker run --name python-hello-fastapi -p 80:80 python-hello-fastapi
+docker run --rm --name hello-fastapi-python3.12 -p 8000:8000 python-hello-fastapi:python3.12
 ```
+
 ### Kubernetes
 
 1. Load docker image from a local host to cluster nodes:
    ```
    # Kind cluster
-   kind load docker-image python-hello-fastapi:latest
+   kind load docker-image python-hello-fastapi:python3.12
    ```
    ```
    # Cluster created with kubeadm
-   docker image save -o /tmp/python-hello-fastapi.tar python-hello-fastapi:latest
+   docker image save -o /tmp/python-hello-fastapi.tar python-hello-fastapi:python3.12
    sudo ctr -n k8s.io image import /tmp/python-hello-fastapi.tar && rm /tmp/python-hello-fastapi.tar
    ```
 2. Create Kubernetes deployment:
@@ -78,7 +79,7 @@ docker run --name python-hello-fastapi -p 80:80 python-hello-fastapi
    ```
 3. Forward local port 8000 to a pod:
    ```
-   kubectl port-forward -n python-hello-fastapi svc/python-hello-fastapi 8000:8000
+   kubectl port-forward -n hello-fastapi-python3.10 svc/python-hello-fastapi 8000:8000
    ```
 
 ## Further Reading

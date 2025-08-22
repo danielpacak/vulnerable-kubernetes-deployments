@@ -2,19 +2,19 @@
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: python-hello-fastapi
+  name: hello-fastapi-python3-12
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: python-hello-fastapi
-  namespace: python-hello-fastapi
+  name: hello-fastapi
+  namespace: hello-fastapi-python3-12
   labels:
-    app: python-hello-fastapi
+    app: hello-fastapi
 spec:
   type: ClusterIP
   selector:
-    app: python-hello-fastapi
+    app: hello-fastapi
   ports:
     - port: 8000
       protocol: TCP
@@ -23,23 +23,23 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: python-hello-fastapi
-  namespace: python-hello-fastapi
+  name: hello-fastapi
+  namespace: hello-fastapi-python3-12
   labels:
-    app: python-hello-fastapi
+    app: hello-fastapi
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: python-hello-fastapi
+      app: hello-fastapi
   template:
     metadata:
       labels:
-        app: python-hello-fastapi
+        app: hello-fastapi
     spec:
       containers:
-        - name: python-hello-fastapi
-          image: docker.io/library/python-hello-fastapi:latest
+        - name: hello-fastapi
+          image: docker.io/danielpacak/python-hello-fastapi:python3.12
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8000
