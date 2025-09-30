@@ -4,6 +4,7 @@ import platform
 import subprocess
 import sys
 
+import pyroscope
 from flask import Flask, render_template, redirect, url_for
 import flask
 from markupsafe import escape
@@ -184,6 +185,21 @@ def add_dynamic_rules():
 
 
 add_dynamic_rules()
+
+# Configure Grafana PyroscopeSDK
+# docker run --rm -d --name pyroscope -p 4040:4040 grafana/pyroscope
+pyroscope_application_name = (
+    os.getenv("PYROSCOPE_APPLICATION_NAME") or "hello-flask-python3.9"
+)
+pyroscope_server_address = (
+    os.getenv("PYROSCOPE_SERVER_ADDRESS") or "http://localhost:4040"
+)
+
+pyroscope.configure(
+    application_name=pyroscope_application_name,
+    server_address=pyroscope_server_address,
+    enable_logging=True,
+)
 
 if __name__ == "__main__":
     app.run()
