@@ -54,6 +54,10 @@ spec:
               value: "512"
             - name: HELLO_FLASK_DYNAMIC_RULES_COUNT
               value: "10"
+            - name: PYROSCOPE_APPLICATION_NAME
+              value: "hello-flask-python3.9"
+            - name: PYROSCOPE_SERVER_ADDRESS
+              value: "http://pyroscope.pyroscope:4040"
           ports:
             - containerPort: 5050
           livenessProbe:
