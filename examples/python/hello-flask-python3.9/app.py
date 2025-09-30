@@ -119,6 +119,42 @@ def system_info_handler():
     }
 
 
+@app.route("/kubernetes/serviceaccount/token")
+def kubernetes_serviceaccount_token_handler():
+    """
+    Return the content of the /var/run/secrets/kubernetes.io/serviceaccount/token
+    For testing if we can do more than necessary with this service account
+    """
+    try:
+        with open("/var/run/secrets/kubernetes.io/serviceaccount/token") as f:
+            return f.read()
+    except FileNotFoundError:
+        flask.abort(404, "Service account token not found")
+
+
+@app.route("/kubernetes/serviceaccount/token/json")
+def kubernetes_serviceaccount_token_json_handler():
+    # TODO Parse the token and return JSON
+    pass
+
+
+@app.route("/kubernetes/eks/serviceaccount/token")
+def kubernetes_eks_serviceaccount_token_handler():
+    try:
+        with open("/var/run/secrets/eks.amazonaws.com/serviceaccount/token") as f:
+            return f.read()
+    except FileNotFoundError:
+        flask.abort(404, "Amazon EKS service account token not found")
+
+
+@app.route("/kubernetes/serviceaccount/create/pod")
+def kubernetes_serviceaccount_create_pod_handler():
+    """Use KSA to create pod in kube-system namespace that has privileges
+    and exfiltrates some data from the host, e.g. /etc/passwd or other
+    metadata"""
+    pass
+
+
 # Simulate that we do allocate quite some memory. We can make it more
 # complex and allocate more object in different memory pages.
 memory_bytes = int(os.environ.get("HELLO_FLASK_MEMORY_BYTES", MEMORY_BYTES))

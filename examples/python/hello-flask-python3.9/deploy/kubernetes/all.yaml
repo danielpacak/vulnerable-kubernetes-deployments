@@ -5,6 +5,12 @@ metadata:
   name: hello-flask-python-39
 ---
 apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: hello-flask
+  namespace: hello-flask-python-39
+---
+apiVersion: v1
 kind: Service
 metadata:
   name: hello-flask
@@ -37,6 +43,8 @@ spec:
       labels:
         app: hello-flask
     spec:
+      serviceAccountName: hello-flask
+      automountServiceAccountToken: true
       containers:
         - name: hello-flask
           image: docker.io/danielpacak/python-hello-flask:python3.9-glibc
