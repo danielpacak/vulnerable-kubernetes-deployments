@@ -190,22 +190,22 @@ version = "0.1.0"
 source = { virtual = "." }
 dependencies = [
     { name = "fastapi", extra = ["standard"] },
+    { name = "pyroscope-io" },
 ]
 
 [package.dev-dependencies]
 dev = [
-    { name = "pyroscope-io" },
     { name = "ruff" },
 ]
 
 [package.metadata]
-requires-dist = [{ name = "fastapi", extras = ["standard"], specifier = ">=0.116.1" }]
+requires-dist = [
+    { name = "fastapi", extras = ["standard"], specifier = ">=0.116.1" },
+    { name = "pyroscope-io", specifier = ">=0.8.11" },
+]
 
 [package.metadata.requires-dev]
-dev = [
-    { name = "pyroscope-io", specifier = ">=0.8.11" },
-    { name = "ruff", specifier = ">=0.12.9" },
-]
+dev = [{ name = "ruff", specifier = ">=0.12.9" }]
 
 [[package]]
 name = "httpcore"

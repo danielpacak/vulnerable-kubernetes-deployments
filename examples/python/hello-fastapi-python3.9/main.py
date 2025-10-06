@@ -129,6 +129,8 @@ pyroscope_server_address = (
 pyroscope.configure(
     application_name=pyroscope_application_name,
     server_address=pyroscope_server_address,
+    sample_rate=100,
+    detect_subprocesses=True,
     enable_logging=True,
 )
 
