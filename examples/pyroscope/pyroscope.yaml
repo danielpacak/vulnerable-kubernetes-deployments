@@ -2,13 +2,13 @@
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: pyroscope
+  name: vulnerable-deployments
 ---
 apiVersion: v1
 kind: Service
 metadata:
   name: pyroscope
-  namespace: pyroscope
+  namespace: vulnerable-deployments
   labels:
     app: pyroscope
 spec:
@@ -24,7 +24,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: pyroscope
-  namespace: pyroscope
+  namespace: vulnerable-deployments
   labels:
     app: pyroscope
 spec:

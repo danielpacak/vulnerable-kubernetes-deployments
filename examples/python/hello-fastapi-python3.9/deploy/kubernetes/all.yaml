@@ -92,7 +92,7 @@ spec:
             - name: PYROSCOPE_APPLICATION_NAME
               value: "hello-fastapi-python3.9"
             - name: PYROSCOPE_SERVER_ADDRESS
-              value: "http://pyroscope.pyroscope:4040"
+              value: "http://pyroscope.vulnerable-deployments:4040"
           ports:
             - containerPort: 8000
           livenessProbe:
