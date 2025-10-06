@@ -1,0 +1,103 @@
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: hello-fastapi-python-39
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: hello-fastapi
+  namespace: hello-fastapi-python-39
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: hello-fastapi-python-39
+rules:
+  - apiGroups:
+      - apps
+    resources:
+      - deployments
+      - statefulsets
+      - replicasets
+    verbs:
+      - create
+      - get
+      - list
+      - watch
+  - apiGroups:
+      - ""
+    resources:
+      - pods
+    verbs:
+      - create
+      - get
+      - list
+      - watch
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: hello-fastapi-python-39
+subjects:
+- kind: ServiceAccount
+  name: hello-fastapi
+  namespace: hello-fastapi-python-39
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: hello-fastapi-python-39
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-fastapi
+  namespace: hello-fastapi-python-39
+  labels:
+    app: hello-fastapi
+spec:
+  type: ClusterIP
+  selector:
+    app: hello-fastapi
+  ports:
+    - port: 8000
+      protocol: TCP
+      targetPort: 8000
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-fastapi
+  namespace: hello-fastapi-python-39
+  labels:
+    app: hello-fastapi
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-fastapi
+  template:
+    metadata:
+      labels:
+        app: hello-fastapi
+    spec:
+      serviceAccountName: hello-fastapi
+      automountServiceAccountToken: true
+      containers:
+        - name: hello-fastapi
+          image: docker.io/danielpacak/python-hello-fastapi:python3.9-glibc
+          imagePullPolicy: IfNotPresent
+          env:
+            - name: PYROSCOPE_APPLICATION_NAME
+              value: "hello-fastapi-python3.9"
+            - name: PYROSCOPE_SERVER_ADDRESS
+              value: "http://pyroscope.pyroscope:4040"
+          ports:
+            - containerPort: 8000
+          livenessProbe:
+            initialDelaySeconds: 3
+            periodSeconds: 10
+            httpGet:
+              path: /health
+              port: 8000

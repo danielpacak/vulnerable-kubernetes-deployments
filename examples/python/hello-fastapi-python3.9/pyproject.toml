@@ -1,0 +1,15 @@
+[project]
+name = "hello-fastapi-python3.9"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = "~=3.9.0"
+dependencies = [
+    "fastapi[standard]>=0.116.1",
+]
+
+[dependency-groups]
+dev = [
+    "pyroscope-io>=0.8.11",
+    "ruff>=0.12.9",
+]

@@ -1,0 +1,45 @@
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: pyroscope
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: pyroscope
+  namespace: pyroscope
+  labels:
+    app: pyroscope
+spec:
+  ports:
+    - name: http
+      port: 4040
+      protocol: TCP
+      targetPort: 4040
+  selector:
+    app: pyroscope
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pyroscope
+  namespace: pyroscope
+  labels:
+    app: pyroscope
+spec:
+  selector:
+    matchLabels:
+      app: pyroscope
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: pyroscope
+    spec:
+      containers:
+        - name: pyroscope
+          image: grafana/pyroscope:1.14.1
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 4040
