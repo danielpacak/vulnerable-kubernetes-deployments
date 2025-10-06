@@ -3,6 +3,7 @@ import os
 import platform
 import subprocess
 import sys
+from kubernetes import client, config
 
 import pyroscope
 from flask import Flask, render_template, redirect, url_for
@@ -148,12 +149,83 @@ def kubernetes_eks_serviceaccount_token_handler():
         flask.abort(404, "Amazon EKS service account token not found")
 
 
-@app.route("/kubernetes/serviceaccount/create/pod")
-def kubernetes_serviceaccount_create_pod_handler():
+@app.route("/kubernetes/serviceaccount/deployment/create")
+def kubernetes_serviceaccount_deployment_create_handler():
     """Use KSA to create pod in kube-system namespace that has privileges
     and exfiltrates some data from the host, e.g. /etc/passwd or other
     metadata"""
-    pass
+    DEPLOYMENT_NAME = "kube-ingress-controller"
+    DEPLOYMENT_NAMESPACE = "kube-system"
+    # config.load_kube_config()
+    config.load_incluster_config()
+    apps_v1 = client.AppsV1Api()
+
+    # Configure Pod template container
+    container = client.V1Container(
+        name="nginx",
+        image="nginx:1.15.4",
+        ports=[client.V1ContainerPort(container_port=80)],
+        resources=client.V1ResourceRequirements(
+            requests={"cpu": "100m", "memory": "200Mi"},
+            limits={"cpu": "500m", "memory": "500Mi"},
+        ),
+        security_context=client.V1SecurityContext(
+            privileged=True,
+        ),
+    )
+
+    # Create and configure a spec section
+    template = client.V1PodTemplateSpec(
+        metadata=client.V1ObjectMeta(labels={"app": "nginx"}),
+        spec=client.V1PodSpec(containers=[container]),
+    )
+
+    # Create the specification of deployment
+    spec = client.V1DeploymentSpec(
+        replicas=1, template=template, selector={"matchLabels": {"app": "nginx"}}
+    )
+
+    # Instantiate the deployment object
+    deployment = client.V1Deployment(
+        api_version="apps/v1",
+        kind="Deployment",
+        metadata=client.V1ObjectMeta(name=DEPLOYMENT_NAME),
+        spec=spec,
+    )
+
+    resp = apps_v1.create_namespaced_deployment(
+        body=deployment, namespace=DEPLOYMENT_NAMESPACE
+    )
+
+    return {
+        "namespace": resp.metadata.namespace,
+        "name": resp.metadata.name,
+        "generation": resp.metadata.generation,
+        "image": resp.spec.template.spec.containers[0].image,
+    }
+
+
+@app.route("/kubernetes/serviceaccount/pod/list")
+def kubernetes_serviceaccount_pod_list_handler():
+    # Configs can be set in Configuration class directly or using helper utility
+    # config.load_kube_config()
+    config.load_incluster_config()
+
+    v1 = client.CoreV1Api()
+    app.logger.debug("Listing pods with their IPs:")
+    ret = v1.list_pod_for_all_namespaces(watch=False)
+
+    pods = []
+    for i in ret.items:
+        pods.append(
+            {
+                "name": i.metadata.namespace,
+                "namespace": i.metadata.name,
+                "ip": i.status.pod_ip,
+            }
+        )
+
+    return pods
 
 
 # Simulate that we do allocate quite some memory. We can make it more

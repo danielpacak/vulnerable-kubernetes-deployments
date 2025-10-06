@@ -6,6 +6,7 @@ readme = "README.md"
 requires-python = "~=3.9.0"
 dependencies = [
     "flask>=3.1.1",
+    "kubernetes>=34.1.0",
     "pyroscope-io>=0.8.11",
     "requests>=2.32.4",
 ]
