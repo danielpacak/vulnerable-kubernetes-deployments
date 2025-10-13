@@ -2,12 +2,8 @@ package com.mycompany.app;
 
 import org.apache.catalina.Context;
 import org.apache.catalina.startup.Tomcat;
+
 import java.io.File;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
 
 public class App {
     public static void main(String[] args) throws Exception {
@@ -22,7 +18,7 @@ public class App {
         File docBase = new File(System.getProperty("java.io.tmpdir"));
         Context context = tomcat.addContext("", docBase.getAbsolutePath());
 
-        Class servletClass = MyServlet.class;
+        Class<MyServlet> servletClass = MyServlet.class;
         Tomcat.addServlet(
                 context, servletClass.getSimpleName(), servletClass.getName());
         context.addServletMappingDecoded(
