@@ -38,11 +38,11 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 ## Deploy with Docker
 
 ```
-docker build -t nextjs-my-app .
+docker build -t danielpacak/nextjs-my-app:node20-bullseye .
 ```
 
 ```
-docker run -d --rm --name nexjs-my-app -p 3000:3000 nextjs-my-app:latest
+docker run -d --rm --name nexjs-my-app -p 3000:3000 danielpacak/nextjs-my-app:node20-bullseye
 ```
 
 ```

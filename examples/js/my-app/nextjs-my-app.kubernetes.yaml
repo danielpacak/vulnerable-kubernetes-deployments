@@ -1,0 +1,39 @@
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: nextjs-my-app
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nextjs-my-app
+  namespace: nextjs-my-app
+spec:
+  selector:
+    app: nextjs-my-app
+  ports:
+    - protocol: TCP
+      port: 3000
+      targetPort: 3000
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nextjs-my-app
+  namespace: nextjs-my-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nextjs-my-app
+  template:
+    metadata:
+      labels:
+        app: nextjs-my-app
+    spec:
+      containers:
+        - name: nextjs-my-app
+          image: docker.io/danielpacak/nextjs-my-app:node20-bullseye
+          ports:
+            - containerPort: 3000
