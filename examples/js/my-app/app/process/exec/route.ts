@@ -31,6 +31,6 @@ async function executeCommand(command: string): Promise<string> {
 }
 
 export async function GET() {
-    let out: string = await executeCommand("uname -r")
+    const out: string = await executeCommand("uname -r")
     return Response.json({"foo": "bar", "out": out})
 }

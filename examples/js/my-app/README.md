@@ -48,3 +48,9 @@ docker run -d --rm --name nexjs-my-app -p 3000:3000 danielpacak/nextjs-my-app:no
 ```
 docker stop nextjs-my-app
 ```
+
+## Further Reading
+
+* https://nextjs.org/learn/react-foundations
+* https://nextjs.org/learn/react-foundations/from-react-to-nextjs
+* https://thefrontenddev.medium.com/getting-started-with-react-server-components-rsc-react-19-and-next-js-in-action-7093448ee5f0
