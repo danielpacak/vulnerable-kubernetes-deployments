@@ -16,3 +16,24 @@ docs for more detail on building and pushing.
 
 ### References
 * [Docker's Node.js guide](https://docs.docker.com/language/nodejs/)
+
+```
+docker build -t danielpacak/hello-express:node20-bullseye .
+```
+
+```
+docker run -d --rm --name hello-express -p 3000:3000 danielpacak/hello-express:node20-bullseye
+```
+
+```
+docker stop hello-express
+```
+
+```
+docker image save -o /tmp/hello-express.tar danielpacak/hello-express:node20-bullseye
+sudo ctr -n k8s.io image import /tmp/hello-express.tar && rm /tmp/hello-express.tar
+```
+
+```
+docker run -d --rm --name pyroscope -p 4040:4040 grafana/pyroscope:latest
+```

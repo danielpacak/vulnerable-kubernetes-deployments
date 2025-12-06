@@ -5,7 +5,7 @@ ARG NODE_VERSION=20
 FROM node:${NODE_VERSION}-bullseye-slim
 
 # Use production node environment by default.
-ENV NODE_ENV production
+#ENV NODE_ENV=production
 
 WORKDIR /usr/src/app
 
@@ -28,4 +28,4 @@ COPY . .
 EXPOSE 3000
 
 # Run the application.
-CMD npm start
+ENTRYPOINT ["npm", "start"]
