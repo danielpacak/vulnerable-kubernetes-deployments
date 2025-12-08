@@ -39,7 +39,8 @@ const serverConfig = {
      *
      * https://webpack.js.org/configuration/mode/
      */
-    mode: 'development',
+    mode: 'production',
+    devtool: 'source-map',
     entry: './src/server/server.jsx',
     output: {
         path: path.join(__dirname, '/dist'),
@@ -59,7 +60,8 @@ const serverConfig = {
 
 const clientConfig = {
     target: 'web',
-    mode: 'development',
+    mode: 'production',
+    devtool: 'source-map',
     entry: './src/client/index.jsx',
     output: {
         path: path.join(__dirname, '/dist'),
