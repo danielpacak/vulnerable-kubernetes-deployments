@@ -16,9 +16,8 @@ const createReactApp = async (location) => {
         </StaticRouter>
     )
     const html = await fs.promises.readFile(`${__dirname}/index.html`, 'utf-8');
-    const reactHtml = html.replace(
+    return html.replace(
         '<div id="root"></div>', `<div id="root">${reactApp}</div>`);
-    return reactHtml;
 };
 
 app.get('/', async (req, res) => {
@@ -32,6 +31,15 @@ app.get('/', async (req, res) => {
 //     const indexHtml =  createReactApp(req.url);
 //     res.status(200).send(indexHtml);
 // });
+
+app.get('/info', async (req, res) => {
+    debugger
+    console.log("Hello from /info handler")
+    res.json({
+        foo: 1,
+        node_env: process.env.NODE_ENV
+    });
+});
 
 app.listen(PORT, () => {
     console.log(`Server started on port ${PORT}`);

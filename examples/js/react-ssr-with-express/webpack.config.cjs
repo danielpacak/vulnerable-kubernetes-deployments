@@ -26,13 +26,28 @@ const resolve = {
 };
 
 const serverConfig = {
+    /* Instructs webpack to generate runtime code for a specific environment.
+     * Note that webpack runtime code is not the same as the user code you
+     * write, you should transpile that code with transpilers like Babel if you
+     * want to target specific environments, e.g, you have arrow functions in
+     * source code and want to run the bundled code in ES5 environments. Webpack
+     * won't transpile them automatically with a target configured.
+     * */
     target: 'node',
-    mode: 'development',
+    /* Providing the mode configuration option tells webpack to use its built-in
+     * optimizations accordingly. (production|development|none)
+     *
+     * https://webpack.js.org/configuration/mode/
+     */
+    mode: 'production',
     entry: './src/server/server.jsx',
     output: {
         path: path.join(__dirname, '/dist'),
         filename: 'server.cjs',
     },
+    /* These options determine how the different types of modules within a
+     * project will be treated.
+     */
     module: babelLoader,
     plugins: [
         new webpack.EnvironmentPlugin({
@@ -64,4 +79,4 @@ const clientConfig = {
     resolve
 };
 
-module.exports = [serverConfig,clientConfig];
+module.exports = [serverConfig, clientConfig];

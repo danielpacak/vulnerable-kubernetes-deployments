@@ -1,0 +1,40 @@
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: react-ssr-with-express
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: react-ssr-with-express
+  namespace: react-ssr-with-express
+spec:
+  selector:
+    app: react-ssr-with-express
+  ports:
+    - protocol: TCP
+      port: 3001
+      targetPort: 3001
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: react-ssr-with-express
+  namespace: react-ssr-with-express
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: react-ssr-with-express
+  template:
+    metadata:
+      labels:
+        app: react-ssr-with-express
+    spec:
+      containers:
+        - name: react-ssr-with-express
+          image: docker.io/danielpacak/react-ssr-with-express:node20.10.0-alpine
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 3001
