@@ -39,7 +39,7 @@ const serverConfig = {
      *
      * https://webpack.js.org/configuration/mode/
      */
-    mode: 'production',
+    mode: 'development',
     entry: './src/server/server.jsx',
     output: {
         path: path.join(__dirname, '/dist'),

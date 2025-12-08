@@ -7,14 +7,14 @@
 # Want to help us make this template better? Share your feedback here: https://forms.gle/ybq9Krt8jtBL3iCk7
 
 ARG NODE_VERSION=20.10.0
+ARG BASE_IMAGE=alpine
 
 ################################################################################
 # Use node image for base image for all stages.
-FROM node:${NODE_VERSION}-alpine AS base
+FROM node:${NODE_VERSION}-${BASE_IMAGE} AS base
 
 # Set working directory for all build stages.
 WORKDIR /usr/src/app
-
 
 ################################################################################
 # Create a stage for installing production dependecies.

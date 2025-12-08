@@ -34,7 +34,9 @@ spec:
     spec:
       containers:
         - name: react-ssr-with-express
-          image: docker.io/danielpacak/react-ssr-with-express:node20.10.0-alpine
-          imagePullPolicy: Always
+          #image: docker.io/danielpacak/react-ssr-with-express:node20.10.0-alpine
+          #image: docker.io/danielpacak/react-ssr-with-express:node20.10.0-bullseye
+          image: docker.io/danielpacak/react-ssr-with-express:node20.10.0-bullseye-slim
+          imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 3001

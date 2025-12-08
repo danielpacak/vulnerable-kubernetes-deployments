@@ -4,6 +4,8 @@ import {StaticRouter} from 'react-router-dom';
 import ReactDOMServer from 'react-dom/server';
 import App from '../client/components/App';
 import fs from 'fs';
+const {exec} = require("child_process");
+
 
 const app = express();
 app.use('/static', express.static(__dirname));
@@ -22,7 +24,7 @@ const createReactApp = async (location) => {
 
 app.get('/', async (req, res) => {
     //res.send('Hello World2!')
-    debugger
+    debugger;
     const indexHtml = await createReactApp(req.url);
     res.send(indexHtml);
 });
@@ -33,11 +35,27 @@ app.get('/', async (req, res) => {
 // });
 
 app.get('/info', async (req, res) => {
-    debugger
-    console.log("Hello from /info handler")
+    debugger;
+    console.log("Handling GET /info request...");
     res.json({
         foo: 1,
         node_env: process.env.NODE_ENV
+    });
+});
+
+app.get('/process/exec', (req, res) => {
+    debugger;
+    console.log("Handling GET /process/exec request...")
+    exec("uname -r", (error, stdout, stderr) => {
+        if (error) {
+            res.send({"error": error.message});
+            return;
+        }
+        if (stderr) {
+            res.send({"stderr": stderr});
+            return;
+        }
+        res.send({"stdout": stdout});
     });
 });
 
