@@ -48,3 +48,7 @@ docker run -d --rm --name my-nextjs-js-app -p 3000:3000 danielpacak/my-nextjs-js
 ```
 docker stop my-nextjs-js-app
 ```
+
+## Further Reading
+
+* https://docs.docker.com/guides/reactjs/

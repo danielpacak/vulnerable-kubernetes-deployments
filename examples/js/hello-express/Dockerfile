@@ -3,15 +3,15 @@
 ARG NODE_VERSION=20
 
 FROM node:${NODE_VERSION}-bullseye-slim
-
+ARG NODE_ENV=production
 # Use production node environment by default.
-#ENV NODE_ENV=production
+ENV NODE_ENV=${NODE_ENV}
 
 WORKDIR /usr/src/app
 
 # Download dependencies as a separate step to take advantage of Docker's caching.
 # Leverage a cache mount to /root/.npm to speed up subsequent builds.
-# Leverage a bind mounts to package.json and package-lock.json to avoid having to copy them into
+# Leverage a bind mounts to package.json and package-lock.json to avoid having to copy them
 # into this layer.
 RUN --mount=type=bind,source=package.json,target=package.json \
     --mount=type=bind,source=package-lock.json,target=package-lock.json \
