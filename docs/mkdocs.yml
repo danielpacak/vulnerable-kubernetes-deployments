@@ -1,0 +1,18 @@
+# https://www.mkdocs.org/user-guide/configuration/
+# https://squidfunk.github.io/mkdocs-material/creating-your-site/#configuration
+site_name: Vulnerable Kubernetes Deployments
+repo_url: https://github.com/danielpacak/vulnerable-kubernetes-deployments
+repo_name: GitHub
+docs_dir: src
+theme:
+  name: material
+  features:
+    - content.code.copy
+    - content.tabs.link
+markdown_extensions:
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+      slugify: !!python/object/apply:pymdownx.slugs.slugify
+        kwds:
+          case: lower

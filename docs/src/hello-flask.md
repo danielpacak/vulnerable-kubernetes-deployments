@@ -34,6 +34,26 @@ docker run --rm -it --name python-hello-flask -p 5050:5050 docker.io/danielpacak
 
 Open <http://localhost:5050> in your web browser.
 
+## Kubernetes
+
+=== "Hello Flask Python 3.13"
+
+    ```
+    k apply -f examples/python/hello-flask-python3.13/deploy/kubernetes/all.yaml
+    ```
+
+=== "Hello Flask Python 3.10"
+
+    ```
+    k apply -f examples/python/hello-flask-python3.10/deploy/kubernetes/all.yaml
+    ```
+
+=== "Hello Flask Python 3.9"
+
+    ```
+    k apply -f examples/python/hello-flask-python3.9/deploy/kubernetes/all.yaml
+    ```
+
 ## TODO
 
 1. Switch to production WSIG server
