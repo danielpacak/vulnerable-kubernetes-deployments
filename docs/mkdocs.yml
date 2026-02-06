@@ -1,6 +1,7 @@
 # https://www.mkdocs.org/user-guide/configuration/
 # https://squidfunk.github.io/mkdocs-material/creating-your-site/#configuration
 site_name: Vulnerable Kubernetes Deployments
+site_url: https://danielpacak.github.io/vulnerable-kubernetes-deployments/
 repo_url: https://github.com/danielpacak/vulnerable-kubernetes-deployments
 repo_name: GitHub
 docs_dir: src

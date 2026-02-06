@@ -1,0 +1,90 @@
+# Deploy RailsGoat with Pyroscope to see the profiles
+# The image is built from branch at https://github.com/danielpacak/railsgoat/tree/pyroscope
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: railsgoat
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: railsgoat
+  namespace: railsgoat
+spec:
+  ports:
+    - name: http
+      port: 3000
+  selector:
+    app: railsgoat
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: pyroscope
+  namespace: railsgoat
+spec:
+  ports:
+    - name: http
+      port: 4040
+  selector:
+    app: pyroscope
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pyroscope
+  namespace: railsgoat
+  labels:
+    app: pyroscope
+spec:
+  selector:
+    matchLabels:
+      app: pyroscope
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: pyroscope
+    spec:
+      containers:
+        - name: pyroscope
+          image: docker.io/grafana/pyroscope:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 4040
+              name: http
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: railsgoat
+  namespace: railsgoat
+  labels:
+    app: railsgoat
+spec:
+  selector:
+    matchLabels:
+      app: railsgoat
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: railsgoat
+    spec:
+      containers:
+        - name: railsgoat
+          image: docker.io/danielpacak/railsgoat:ruby-3.4.1
+          imagePullPolicy: IfNotPresent
+          command:
+            - /bin/sh
+            - '-c'
+          args:
+            - >-
+              rails db:setup && rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'
+          env:
+            - name: PYROSCOPE_URL
+              value: http://pyroscope:4040
+          ports:
+            - containerPort: 3000
+              name: http
