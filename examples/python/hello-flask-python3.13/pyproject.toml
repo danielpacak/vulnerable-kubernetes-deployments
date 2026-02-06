@@ -1,0 +1,15 @@
+[project]
+name = "hello-flask-python3.13"
+version = "0.1.0"
+description = "Descriptions are for wimps"
+requires-python = "~=3.13.0"
+dependencies = [
+    "flask>=3.1.1",
+    "requests>=2.32.4",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.4.1",
+    "ruff>=0.12.8",
+]
