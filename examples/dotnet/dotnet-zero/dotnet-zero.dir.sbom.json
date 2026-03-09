@@ -1,0 +1,538 @@
+{
+    "artifacts": [
+        {
+            "id": "6403075945f6dad6",
+            "name": "Newtonsoft.Json",
+            "version": "11.0.1",
+            "type": "dotnet",
+            "foundBy": "dotnet-deps-binary-cataloger",
+            "locations": [
+                {
+                    "path": "/dotnet-zero.deps.json",
+                    "accessPath": "/dotnet-zero.deps.json",
+                    "annotations": {
+                        "evidence": "primary"
+                    }
+                },
+                {
+                    "path": "/Newtonsoft.Json.dll",
+                    "accessPath": "/Newtonsoft.Json.dll",
+                    "annotations": {
+                        "evidence": "supporting"
+                    }
+                }
+            ],
+            "licenses": [],
+            "language": "dotnet",
+            "cpes": [
+                {
+                    "cpe": "cpe:2.3:a:newtonsoft_json:newtonsoft_json_.net:11.0.1:*:*:*:*:*:*:*",
+                    "source": "syft-generated"
+                },
+                {
+                    "cpe": "cpe:2.3:a:newtonsoft:newtonsoft_json_.net:11.0.1:*:*:*:*:*:*:*",
+                    "source": "syft-generated"
+                },
+                {
+                    "cpe": "cpe:2.3:a:newtonsoft_json:newtonsoft_json:11.0.1:*:*:*:*:*:*:*",
+                    "source": "syft-generated"
+                },
+                {
+                    "cpe": "cpe:2.3:a:newtonsoft_json:json_net_.net:11.0.1:*:*:*:*:*:*:*",
+                    "source": "syft-generated"
+                },
+                {
+                    "cpe": "cpe:2.3:a:newtonsoft:newtonsoft_json:11.0.1:*:*:*:*:*:*:*",
+                    "source": "syft-generated"
+                },
+                {
+                    "cpe": "cpe:2.3:a:newtonsoft:json_net_.net:11.0.1:*:*:*:*:*:*:*",
+                    "source": "syft-generated"
+                },
+                {
+                    "cpe": "cpe:2.3:a:newtonsoft_json:json_net:11.0.1:*:*:*:*:*:*:*",
+                    "source": "syft-generated"
+                },
+                {
+                    "cpe": "cpe:2.3:a:newtonsoft:json_net:11.0.1:*:*:*:*:*:*:*",
+                    "source": "syft-generated"
+                }
+            ],
+            "purl": "pkg:nuget/Newtonsoft.Json@11.0.1",
+            "metadataType": "dotnet-deps-entry",
+            "metadata": {
+                "name": "Newtonsoft.Json",
+                "version": "11.0.1",
+                "path": "newtonsoft.json/11.0.1",
+                "sha512": "sha512-pNN4l+J6LlpIvHOeNdXlwxv39NPJ2B5klz+Rd2UQZIx30Squ5oND1Yy3wEAUoKn0GPUj6Yxt9lxlYWQqfZcvKg==",
+                "hashPath": "newtonsoft.json.11.0.1.nupkg.sha512",
+                "type": "package",
+                "executables": {
+                    "lib/netstandard2.0/Newtonsoft.Json.dll": {
+                        "assemblyVersion": "11.0.0.0",
+                        "legalCopyright": "Copyright © James Newton-King 2008",
+                        "comments": "Json.NET is a popular high-performance JSON framework for .NET",
+                        "internalName": "Newtonsoft.Json.dll",
+                        "companyName": "Newtonsoft",
+                        "productName": "Json.NET",
+                        "productVersion": "11.0.1"
+                    }
+                }
+            }
+        },
+        {
+            "id": "066c8da1885c49cb",
+            "name": "dotnet-zero",
+            "version": "1.0.0",
+            "type": "dotnet",
+            "foundBy": "dotnet-deps-binary-cataloger",
+            "locations": [
+                {
+                    "path": "/dotnet-zero.deps.json",
+                    "accessPath": "/dotnet-zero.deps.json",
+                    "annotations": {
+                        "evidence": "primary"
+                    }
+                },
+                {
+                    "path": "/dotnet-zero.dll",
+                    "accessPath": "/dotnet-zero.dll",
+                    "annotations": {
+                        "evidence": "supporting"
+                    }
+                }
+            ],
+            "licenses": [],
+            "language": "dotnet",
+            "cpes": [
+                {
+                    "cpe": "cpe:2.3:a:dotnet_zero:dotnet_zero_.net:1.0.0:*:*:*:*:*:*:*",
+                    "source": "syft-generated"
+                },
+                {
+                    "cpe": "cpe:2.3:a:dotnet_zero:dotnet_zero:1.0.0:*:*:*:*:*:*:*",
+                    "source": "syft-generated"
+                }
+            ],
+            "purl": "pkg:nuget/dotnet-zero@1.0.0",
+            "metadataType": "dotnet-deps-entry",
+            "metadata": {
+                "name": "dotnet-zero",
+                "version": "1.0.0",
+                "path": "",
+                "sha512": "",
+                "hashPath": "",
+                "type": "project",
+                "executables": {
+                    "dotnet-zero.dll": {
+                        "assemblyVersion": "1.0.0.0",
+                        "legalCopyright": "",
+                        "internalName": "dotnet-zero.dll",
+                        "companyName": "dotnet-zero",
+                        "productName": "dotnet-zero",
+                        "productVersion": "1.0.0+8e24528e7ab1a8c7bc4e13931a76cb69740e4fdf"
+                    }
+                }
+            }
+        }
+    ],
+    "artifactRelationships": [
+        {
+            "parent": "066c8da1885c49cb",
+            "child": "45c2eb50f24ac702",
+            "type": "evident-by",
+            "metadata": {
+                "kind": "primary"
+            }
+        },
+        {
+            "parent": "066c8da1885c49cb",
+            "child": "782b77bd1017ad18",
+            "type": "evident-by",
+            "metadata": {
+                "kind": "supporting"
+            }
+        },
+        {
+            "parent": "6403075945f6dad6",
+            "child": "066c8da1885c49cb",
+            "type": "dependency-of"
+        },
+        {
+            "parent": "6403075945f6dad6",
+            "child": "45c2eb50f24ac702",
+            "type": "evident-by",
+            "metadata": {
+                "kind": "primary"
+            }
+        },
+        {
+            "parent": "6403075945f6dad6",
+            "child": "d00d0594a5a369e7",
+            "type": "evident-by",
+            "metadata": {
+                "kind": "supporting"
+            }
+        },
+        {
+            "parent": "c002f921010d5d3ee507db9ac086e8a42b4a945c2ca577085c762382918f4b12",
+            "child": "066c8da1885c49cb",
+            "type": "contains"
+        },
+        {
+            "parent": "c002f921010d5d3ee507db9ac086e8a42b4a945c2ca577085c762382918f4b12",
+            "child": "6403075945f6dad6",
+            "type": "contains"
+        }
+    ],
+    "files": [
+        {
+            "id": "d00d0594a5a369e7",
+            "location": {
+                "path": "/Newtonsoft.Json.dll"
+            },
+            "metadata": {
+                "mode": 744,
+                "type": "RegularFile",
+                "userID": 1000,
+                "groupID": 1000,
+                "mimeType": "application/vnd.microsoft.portable-executable",
+                "size": 658432
+            },
+            "digests": [
+                {
+                    "algorithm": "sha1",
+                    "value": "2cf8cbbe2ff3ead1c9b28451e3af5a847facfeba"
+                },
+                {
+                    "algorithm": "sha256",
+                    "value": "6a8df611f76a00e8d1ab98c1df6b9136ce43c95ac74adbd0fc581eca08560080"
+                }
+            ],
+            "executable": {
+                "format": "pe",
+                "hasExports": false,
+                "hasEntrypoint": false,
+                "importedLibraries": []
+            }
+        },
+        {
+            "id": "f723fc06e2688379",
+            "location": {
+                "path": "/dotnet-zero"
+            },
+            "executable": {
+                "format": "elf",
+                "hasExports": false,
+                "hasEntrypoint": true,
+                "importedLibraries": [
+                    "libdl.so.2",
+                    "libpthread.so.0",
+                    "libstdc++.so.6",
+                    "libm.so.6",
+                    "libgcc_s.so.1",
+                    "libc.so.6",
+                    "ld-linux-aarch64.so.1"
+                ],
+                "elfSecurityFeatures": {
+                    "symbolTableStripped": true,
+                    "stackCanary": true,
+                    "nx": true,
+                    "relRO": "full",
+                    "pie": true,
+                    "dso": true,
+                    "safeStack": false
+                }
+            },
+            "unknowns": [
+                "unknowns-labeler: no package identified in executable file"
+            ]
+        },
+        {
+            "id": "45c2eb50f24ac702",
+            "location": {
+                "path": "/dotnet-zero.deps.json"
+            },
+            "metadata": {
+                "mode": 644,
+                "type": "RegularFile",
+                "userID": 1000,
+                "groupID": 1000,
+                "mimeType": "application/json",
+                "size": 1007
+            },
+            "digests": [
+                {
+                    "algorithm": "sha1",
+                    "value": "7b911a6a498f74b1bcdcf26542f669fe8764cabd"
+                },
+                {
+                    "algorithm": "sha256",
+                    "value": "e3a136428e4127f019497c4e3172129ef9fc2e8b8d9335bde8d9b6e755b3a087"
+                }
+            ]
+        },
+        {
+            "id": "782b77bd1017ad18",
+            "location": {
+                "path": "/dotnet-zero.dll"
+            },
+            "metadata": {
+                "mode": 644,
+                "type": "RegularFile",
+                "userID": 1000,
+                "groupID": 1000,
+                "mimeType": "application/vnd.microsoft.portable-executable",
+                "size": 7680
+            },
+            "digests": [
+                {
+                    "algorithm": "sha1",
+                    "value": "17df46f3eb1e65fd3b5ff231a4df1461131d776d"
+                },
+                {
+                    "algorithm": "sha256",
+                    "value": "b8eba3d5cf0081bf5aaf3606bc7e19f789622e427a326130bf1173da3b2bd173"
+                }
+            ],
+            "executable": {
+                "format": "pe",
+                "hasExports": false,
+                "hasEntrypoint": false,
+                "importedLibraries": []
+            }
+        }
+    ],
+    "source": {
+        "id": "c002f921010d5d3ee507db9ac086e8a42b4a945c2ca577085c762382918f4b12",
+        "name": "./bin/Release/net10.0/publish",
+        "version": "",
+        "type": "directory",
+        "metadata": {
+            "path": "./bin/Release/net10.0/publish"
+        }
+    },
+    "distro": {},
+    "descriptor": {
+        "name": "syft",
+        "version": "1.42.1",
+        "configuration": {
+            "catalogers": {
+                "requested": {
+                    "default": [
+                        "directory",
+                        "file"
+                    ]
+                },
+                "used": [
+                    "alpm-db-cataloger",
+                    "apk-db-cataloger",
+                    "binary-classifier-cataloger",
+                    "cargo-auditable-binary-cataloger",
+                    "cocoapods-cataloger",
+                    "conan-cataloger",
+                    "conda-meta-cataloger",
+                    "dart-pubspec-cataloger",
+                    "dart-pubspec-lock-cataloger",
+                    "deb-archive-cataloger",
+                    "dotnet-deps-binary-cataloger",
+                    "dotnet-packages-lock-cataloger",
+                    "dpkg-db-cataloger",
+                    "elf-binary-package-cataloger",
+                    "elixir-mix-lock-cataloger",
+                    "erlang-otp-application-cataloger",
+                    "erlang-rebar-lock-cataloger",
+                    "file-content-cataloger",
+                    "file-digest-cataloger",
+                    "file-executable-cataloger",
+                    "file-metadata-cataloger",
+                    "gguf-cataloger",
+                    "github-action-workflow-usage-cataloger",
+                    "github-actions-usage-cataloger",
+                    "go-module-binary-cataloger",
+                    "go-module-file-cataloger",
+                    "graalvm-native-image-cataloger",
+                    "haskell-cataloger",
+                    "homebrew-cataloger",
+                    "java-archive-cataloger",
+                    "java-gradle-lockfile-cataloger",
+                    "java-jvm-cataloger",
+                    "java-pom-cataloger",
+                    "javascript-lock-cataloger",
+                    "linux-kernel-cataloger",
+                    "lua-rock-cataloger",
+                    "nix-cataloger",
+                    "opam-cataloger",
+                    "pe-binary-package-cataloger",
+                    "php-composer-lock-cataloger",
+                    "php-interpreter-cataloger",
+                    "php-pear-serialized-cataloger",
+                    "portage-cataloger",
+                    "python-installed-package-cataloger",
+                    "python-package-cataloger",
+                    "r-package-cataloger",
+                    "rpm-archive-cataloger",
+                    "rpm-db-cataloger",
+                    "ruby-gemfile-cataloger",
+                    "ruby-gemspec-cataloger",
+                    "rust-cargo-lock-cataloger",
+                    "snap-cataloger",
+                    "swift-package-manager-cataloger",
+                    "swipl-pack-cataloger",
+                    "terraform-lock-cataloger",
+                    "wordpress-plugins-cataloger"
+                ]
+            },
+            "data-generation": {
+                "generate-cpes": true
+            },
+            "files": {
+                "content": {
+                    "globs": null,
+                    "skip-files-above-size": 0
+                },
+                "hashers": [
+                    "sha-1",
+                    "sha-256"
+                ],
+                "selection": "owned-by-package"
+            },
+            "licenses": {
+                "coverage": 75,
+                "include-content": "none"
+            },
+            "packages": {
+                "binary": [
+                    "python-binary",
+                    "python-binary-lib",
+                    "pypy-binary-lib",
+                    "go-binary",
+                    "julia-binary",
+                    "helm",
+                    "redis-binary",
+                    "valkey-binary",
+                    "nodejs-binary",
+                    "busybox-binary",
+                    "util-linux-binary",
+                    "haproxy-binary",
+                    "perl-binary",
+                    "php-composer-binary",
+                    "httpd-binary",
+                    "memcached-binary",
+                    "traefik-binary",
+                    "arangodb-binary",
+                    "postgresql-binary",
+                    "mysql-binary",
+                    "mysql-binary",
+                    "mysql-binary",
+                    "xtrabackup-binary",
+                    "mariadb-binary",
+                    "rust-standard-library-linux",
+                    "rust-standard-library-macos",
+                    "ruby-binary",
+                    "erlang-binary",
+                    "erlang-alpine-binary",
+                    "erlang-library",
+                    "swipl-binary",
+                    "dart-binary",
+                    "haskell-ghc-binary",
+                    "haskell-cabal-binary",
+                    "haskell-stack-binary",
+                    "consul-binary",
+                    "hashicorp-vault-binary",
+                    "nginx-binary",
+                    "bash-binary",
+                    "openssl-binary",
+                    "qt-qtbase-lib",
+                    "gcc-binary",
+                    "fluent-bit-binary",
+                    "wordpress-cli-binary",
+                    "curl-binary",
+                    "lighttpd-binary",
+                    "proftpd-binary",
+                    "zstd-binary",
+                    "xz-binary",
+                    "gzip-binary",
+                    "sqlcipher-binary",
+                    "jq-binary",
+                    "chrome-binary",
+                    "ffmpeg-binary",
+                    "ffmpeg-library",
+                    "ffmpeg-library",
+                    "elixir-binary",
+                    "elixir-library",
+                    "istio-binary",
+                    "istio-binary",
+                    "grafana-binary",
+                    "grafana-binary",
+                    "envoy-binary",
+                    "mongodb-binary",
+                    "java-binary",
+                    "java-jdb-binary"
+                ],
+                "dotnet": {
+                    "dep-packages-must-claim-dll": true,
+                    "dep-packages-must-have-dll": false,
+                    "exclude-project-references": true,
+                    "propagate-dll-claims-to-parents": true,
+                    "relax-dll-claims-when-bundling-detected": true
+                },
+                "golang": {
+                    "local-mod-cache-dir": "/home/parallels/go/pkg/mod",
+                    "local-vendor-dir": "",
+                    "main-module-version": {
+                        "from-build-settings": true,
+                        "from-contents": false,
+                        "from-ld-flags": true
+                    },
+                    "proxies": [
+                        "https://proxy.golang.org",
+                        "direct"
+                    ],
+                    "search-local-mod-cache-licenses": false,
+                    "search-local-vendor-licenses": false,
+                    "search-remote-licenses": false,
+                    "use-packages-lib": true
+                },
+                "java-archive": {
+                    "include-indexed-archives": true,
+                    "include-unindexed-archives": false,
+                    "maven-base-url": "https://repo1.maven.org/maven2",
+                    "maven-localrepository-dir": "/home/parallels/.m2/repository",
+                    "max-parent-recursive-depth": 0,
+                    "resolve-transitive-dependencies": false,
+                    "use-maven-localrepository": false,
+                    "use-network": false
+                },
+                "javascript": {
+                    "include-dev-dependencies": false,
+                    "npm-base-url": "https://registry.npmjs.org",
+                    "search-remote-licenses": false
+                },
+                "linux-kernel": {
+                    "catalog-modules": true
+                },
+                "nix": {
+                    "capture-owned-files": false
+                },
+                "python": {
+                    "guess-unpinned-requirements": false,
+                    "pypi-base-url": "https://pypi.org/pypi",
+                    "search-remote-licenses": false
+                }
+            },
+            "relationships": {
+                "exclude-binary-packages-with-file-ownership-overlap": true,
+                "package-file-ownership": true,
+                "package-file-ownership-overlap": true
+            },
+            "search": {
+                "scope": "squashed"
+            }
+        }
+    },
+    "schema": {
+        "version": "16.1.3",
+        "url": "https://raw.githubusercontent.com/anchore/syft/main/schema/json/schema-16.1.3.json"
+    }
+}

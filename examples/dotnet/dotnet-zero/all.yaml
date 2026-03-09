@@ -1,0 +1,59 @@
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: dotnet-zero
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: dotnet-zero
+  namespace: dotnet-zero
+  labels:
+    app: dotnet-zero
+spec:
+  type: ClusterIP
+  selector:
+    app: dotnet-zero
+  ports:
+    - port: 8080
+      protocol: TCP
+      targetPort: 8080
+      name: http
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dotnet-zero
+  namespace: dotnet-zero
+  labels:
+    app: dotnet-zero
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: dotnet-zero
+  template:
+    metadata:
+      labels:
+        app: dotnet-zero
+    spec:
+      containers:
+        - name: dotnet-zero
+          image: docker.io/danielpacak/dotnet-zero:10
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8080
+              name: http
+          livenessProbe:
+            httpGet:
+              path: /healtz
+              port: 8080
+            initialDelaySeconds: 10
+            periodSeconds: 10
+          readinessProbe:
+            httpGet:
+              path: /healtz
+              port: 8080
+            initialDelaySeconds: 5
+            periodSeconds: 5
