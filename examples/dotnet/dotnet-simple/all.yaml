@@ -1,0 +1,59 @@
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: dotnet-simple
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: dotnet-simple
+  namespace: dotnet-simple
+  labels:
+    app: dotnet-simple
+spec:
+  type: ClusterIP
+  selector:
+    app: dotnet-simple
+  ports:
+    - port: 8080
+      protocol: TCP
+      targetPort: 8080
+      name: http
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dotnet-simple
+  namespace: dotnet-simple
+  labels:
+    app: dotnet-simple
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: dotnet-simple
+  template:
+    metadata:
+      labels:
+        app: dotnet-simple
+    spec:
+      containers:
+        - name: dotnet-simple
+          image: docker.io/danielpacak/dotnet-simple:10
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8080
+              name: http
+          livenessProbe:
+            httpGet:
+              path: /healtz
+              port: 8080
+            initialDelaySeconds: 10
+            periodSeconds: 10
+          readinessProbe:
+            httpGet:
+              path: /healtz
+              port: 8080
+            initialDelaySeconds: 5
+            periodSeconds: 5

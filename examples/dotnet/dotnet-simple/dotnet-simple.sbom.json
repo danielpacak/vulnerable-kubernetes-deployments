@@ -1,0 +1,1132 @@
+{
+    "artifacts": [
+        {
+            "id": "488424dec1f77a22",
+            "name": "OpenTelemetry",
+            "version": "1.15.0",
+            "type": "dotnet",
+            "foundBy": "dotnet-deps-binary-cataloger",
+            "locations": [
+                {
+                    "path": "/dotnet-simple.deps.json",
+                    "accessPath": "/dotnet-simple.deps.json",
+                    "annotations": {
+                        "evidence": "primary"
+                    }
+                },
+                {
+                    "path": "/OpenTelemetry.dll",
+                    "accessPath": "/OpenTelemetry.dll",
+                    "annotations": {
+                        "evidence": "supporting"
+                    }
+                }
+            ],
+            "licenses": [],
+            "language": "dotnet",
+            "cpes": [
+                {
+                    "cpe": "cpe:2.3:a:opentelemetry_authors:opentelemetry_.net:1.15.0:*:*:*:*:*:*:*",
+                    "source": "syft-generated"
+                },
+                {
+                    "cpe": "cpe:2.3:a:opentelemetry_authors:opentelemetry:1.15.0:*:*:*:*:*:*:*",
+                    "source": "syft-generated"
+                },
+                {
+                    "cpe": "cpe:2.3:a:opentelemetry:opentelemetry_.net:1.15.0:*:*:*:*:*:*:*",
+                    "source": "syft-generated"
+                },
+                {
+                    "cpe": "cpe:2.3:a:opentelemetry:opentelemetry:1.15.0:*:*:*:*:*:*:*",
+                    "source": "syft-generated"
+                }
+            ],
+            "purl": "pkg:nuget/OpenTelemetry@1.15.0",
+            "metadataType": "dotnet-deps-entry",
+            "metadata": {
+                "name": "OpenTelemetry",
+                "version": "1.15.0",
+                "path": "opentelemetry/1.15.0",
+                "sha512": "sha512-7mS/oZFF8S6xyqGQfMU1btp0nXJQUPWV535Vp/XMLYwRAUv36xQN+U4vufWBF1+z4HnRTOwuFHtUSGnHbyN6FQ==",
+                "hashPath": "opentelemetry.1.15.0.nupkg.sha512",
+                "type": "package",
+                "executables": {
+                    "lib/net10.0/OpenTelemetry.dll": {
+                        "assemblyVersion": "1.0.0.0",
+                        "legalCopyright": "Copyright The OpenTelemetry Authors",
+                        "comments": "OpenTelemetry .NET SDK",
+                        "internalName": "OpenTelemetry.dll",
+                        "companyName": "OpenTelemetry Authors",
+                        "productName": "OpenTelemetry",
+                        "productVersion": "1.15.0+164d8a59ae4f8ae4d9b498981f1a2ea046d0513f"
+                    }
+                }
+            }
+        },
+        {
+            "id": "1c2400251912c028",
+            "name": "OpenTelemetry.Api",
+            "version": "1.15.0",
+            "type": "dotnet",
+            "foundBy": "dotnet-deps-binary-cataloger",
+            "locations": [
+                {
+                    "path": "/dotnet-simple.deps.json",
+                    "accessPath": "/dotnet-simple.deps.json",
+                    "annotations": {
+                        "evidence": "primary"
+                    }
+                },
+                {
+                    "path": "/OpenTelemetry.Api.dll",
+                    "accessPath": "/OpenTelemetry.Api.dll",
+                    "annotations": {
+                        "evidence": "supporting"
+                    }
+                }
+            ],
+            "licenses": [],
+            "language": "dotnet",
+            "cpes": [
+                {
+                    "cpe": "cpe:2.3:a:opentelemetry_authors:opentelemetry_api_.net:1.15.0:*:*:*:*:*:*:*",
+                    "source": "syft-generated"
+                },
+                {
+                    "cpe": "cpe:2.3:a:opentelemetry_api:opentelemetry_api_.net:1.15.0:*:*:*:*:*:*:*",
+                    "source": "syft-generated"
+                },
+                {
+                    "cpe": "cpe:2.3:a:opentelemetry_authors:opentelemetry_api:1.15.0:*:*:*:*:*:*:*",
+                    "source": "syft-generated"
+                },
+                {
+                    "cpe": "cpe:2.3:a:opentelemetry_api:opentelemetry_api:1.15.0:*:*:*:*:*:*:*",
+                    "source": "syft-generated"
+                }
+            ],
+            "purl": "pkg:nuget/OpenTelemetry.Api@1.15.0",
+            "metadataType": "dotnet-deps-entry",
+            "metadata": {
+                "name": "OpenTelemetry.Api",
+                "version": "1.15.0",
+                "path": "opentelemetry.api/1.15.0",
+                "sha512": "sha512-vk5OGdf6K9kQScCWo3bRjhDWCv6Pqw92IpX4dlARZ8B1WL7/2NGTDtCkkw42eQf7UdwyoHKzVvMH/PtL8d6z7w==",
+                "hashPath": "opentelemetry.api.1.15.0.nupkg.sha512",
+                "type": "package",
+                "executables": {
+                    "lib/net10.0/OpenTelemetry.Api.dll": {
+                        "assemblyVersion": "1.0.0.0",
+                        "legalCopyright": "Copyright The OpenTelemetry Authors",
+                        "comments": "OpenTelemetry .NET API",
+                        "internalName": "OpenTelemetry.Api.dll",
+                        "companyName": "OpenTelemetry Authors",
+                        "productName": "OpenTelemetry.Api",
+                        "productVersion": "1.15.0+164d8a59ae4f8ae4d9b498981f1a2ea046d0513f"
+                    }
+                }
+            }
+        },
+        {
+            "id": "302b0d417ed21a96",
+            "name": "OpenTelemetry.Api.ProviderBuilderExtensions",
+            "version": "1.15.0",
+            "type": "dotnet",
+            "foundBy": "dotnet-deps-binary-cataloger",
+            "locations": [
+                {
+                    "path": "/dotnet-simple.deps.json",
+                    "accessPath": "/dotnet-simple.deps.json",
+                    "annotations": {
+                        "evidence": "primary"
+                    }
+                },
+                {
+                    "path": "/OpenTelemetry.Api.ProviderBuilderExtensions.dll",
+                    "accessPath": "/OpenTelemetry.Api.ProviderBuilderExtensions.dll",
+                    "annotations": {
+                        "evidence": "supporting"
+                    }
+                }
+            ],
+            "licenses": [],
+            "language": "dotnet",
+            "cpes": [
+                {
+                    "cpe": "cpe:2.3:a:opentelemetry_api_providerbuilderextensions:opentelemetry_api_providerbuilderextensions_.net:1.15.0:*:*:*:*:*:*:*",
+                    "source": "syft-generated"
+                },
+                {
+                    "cpe": "cpe:2.3:a:opentelemetry_api_providerbuilderextensions:opentelemetry_api_providerbuilderextensions:1.15.0:*:*:*:*:*:*:*",
+                    "source": "syft-generated"
+                },
+                {
+                    "cpe": "cpe:2.3:a:opentelemetry_authors:opentelemetry_api_providerbuilderextensions_.net:1.15.0:*:*:*:*:*:*:*",
+                    "source": "syft-generated"
+                },
+                {
+                    "cpe": "cpe:2.3:a:opentelemetry_authors:opentelemetry_api_providerbuilderextensions:1.15.0:*:*:*:*:*:*:*",
+                    "source": "syft-generated"
+                }
+            ],
+            "purl": "pkg:nuget/OpenTelemetry.Api.ProviderBuilderExtensions@1.15.0",
+            "metadataType": "dotnet-deps-entry",
+            "metadata": {
+                "name": "OpenTelemetry.Api.ProviderBuilderExtensions",
+                "version": "1.15.0",
+                "path": "opentelemetry.api.providerbuilderextensions/1.15.0",
+                "sha512": "sha512-OnuSUlRpGvowkOzGFQfy+KZFu0cITfKfh2IYJJiZskxVJiOuexwOOuvfDAgpJdmTzVWAHjYdz2shcHZaJ06UjQ==",
+                "hashPath": "opentelemetry.api.providerbuilderextensions.1.15.0.nupkg.sha512",
+                "type": "package",
+                "executables": {
+                    "lib/net10.0/OpenTelemetry.Api.ProviderBuilderExtensions.dll": {
+                        "assemblyVersion": "1.0.0.0",
+                        "legalCopyright": "Copyright The OpenTelemetry Authors",
+                        "comments": "Contains extensions to register OpenTelemetry in applications using Microsoft.Extensions.DependencyInjection",
+                        "internalName": "OpenTelemetry.Api.ProviderBuilderExtensions.dll",
+                        "companyName": "OpenTelemetry Authors",
+                        "productName": "OpenTelemetry.Api.ProviderBuilderExtensions",
+                        "productVersion": "1.15.0+164d8a59ae4f8ae4d9b498981f1a2ea046d0513f"
+                    }
+                }
+            }
+        },
+        {
+            "id": "324d4b07ca1448b6",
+            "name": "OpenTelemetry.Exporter.Console",
+            "version": "1.15.0",
+            "type": "dotnet",
+            "foundBy": "dotnet-deps-binary-cataloger",
+            "locations": [
+                {
+                    "path": "/dotnet-simple.deps.json",
+                    "accessPath": "/dotnet-simple.deps.json",
+                    "annotations": {
+                        "evidence": "primary"
+                    }
+                },
+                {
+                    "path": "/OpenTelemetry.Exporter.Console.dll",
+                    "accessPath": "/OpenTelemetry.Exporter.Console.dll",
+                    "annotations": {
+                        "evidence": "supporting"
+                    }
+                }
+            ],
+            "licenses": [],
+            "language": "dotnet",
+            "cpes": [
+                {
+                    "cpe": "cpe:2.3:a:opentelemetry_exporter_console:opentelemetry_exporter_console_.net:1.15.0:*:*:*:*:*:*:*",
+                    "source": "syft-generated"
+                },
+                {
+                    "cpe": "cpe:2.3:a:opentelemetry_exporter_console:opentelemetry_exporter_console:1.15.0:*:*:*:*:*:*:*",
+                    "source": "syft-generated"
+                },
+                {
+                    "cpe": "cpe:2.3:a:opentelemetry_authors:opentelemetry_exporter_console_.net:1.15.0:*:*:*:*:*:*:*",
+                    "source": "syft-generated"
+                },
+                {
+                    "cpe": "cpe:2.3:a:opentelemetry_authors:opentelemetry_exporter_console:1.15.0:*:*:*:*:*:*:*",
+                    "source": "syft-generated"
+                }
+            ],
+            "purl": "pkg:nuget/OpenTelemetry.Exporter.Console@1.15.0",
+            "metadataType": "dotnet-deps-entry",
+            "metadata": {
+                "name": "OpenTelemetry.Exporter.Console",
+                "version": "1.15.0",
+                "path": "opentelemetry.exporter.console/1.15.0",
+                "sha512": "sha512-Jweov3Q70xmy5U8bwab8xd+xAuaFBI4695q/IpH4/dcAwKytyB+WhV5HufmKfXiKZhRbSEo8piG+i1ENEmdFXw==",
+                "hashPath": "opentelemetry.exporter.console.1.15.0.nupkg.sha512",
+                "type": "package",
+                "executables": {
+                    "lib/net10.0/OpenTelemetry.Exporter.Console.dll": {
+                        "assemblyVersion": "1.0.0.0",
+                        "legalCopyright": "Copyright The OpenTelemetry Authors",
+                        "comments": "Console exporter for OpenTelemetry .NET",
+                        "internalName": "OpenTelemetry.Exporter.Console.dll",
+                        "companyName": "OpenTelemetry Authors",
+                        "productName": "OpenTelemetry.Exporter.Console",
+                        "productVersion": "1.15.0+164d8a59ae4f8ae4d9b498981f1a2ea046d0513f"
+                    }
+                }
+            }
+        },
+        {
+            "id": "8db734ef7f988e8b",
+            "name": "OpenTelemetry.Extensions.Hosting",
+            "version": "1.15.0",
+            "type": "dotnet",
+            "foundBy": "dotnet-deps-binary-cataloger",
+            "locations": [
+                {
+                    "path": "/dotnet-simple.deps.json",
+                    "accessPath": "/dotnet-simple.deps.json",
+                    "annotations": {
+                        "evidence": "primary"
+                    }
+                },
+                {
+                    "path": "/OpenTelemetry.Extensions.Hosting.dll",
+                    "accessPath": "/OpenTelemetry.Extensions.Hosting.dll",
+                    "annotations": {
+                        "evidence": "supporting"
+                    }
+                }
+            ],
+            "licenses": [],
+            "language": "dotnet",
+            "cpes": [
+                {
+                    "cpe": "cpe:2.3:a:opentelemetry_extensions_hosting:opentelemetry_extensions_hosting_.net:1.15.0:*:*:*:*:*:*:*",
+                    "source": "syft-generated"
+                },
+                {
+                    "cpe": "cpe:2.3:a:opentelemetry_extensions_hosting:opentelemetry_extensions_hosting:1.15.0:*:*:*:*:*:*:*",
+                    "source": "syft-generated"
+                },
+                {
+                    "cpe": "cpe:2.3:a:opentelemetry_authors:opentelemetry_extensions_hosting_.net:1.15.0:*:*:*:*:*:*:*",
+                    "source": "syft-generated"
+                },
+                {
+                    "cpe": "cpe:2.3:a:opentelemetry_authors:opentelemetry_extensions_hosting:1.15.0:*:*:*:*:*:*:*",
+                    "source": "syft-generated"
+                }
+            ],
+            "purl": "pkg:nuget/OpenTelemetry.Extensions.Hosting@1.15.0",
+            "metadataType": "dotnet-deps-entry",
+            "metadata": {
+                "name": "OpenTelemetry.Extensions.Hosting",
+                "version": "1.15.0",
+                "path": "opentelemetry.extensions.hosting/1.15.0",
+                "sha512": "sha512-RixjKyB1pbYGhWdvPto4KJs+exdQknJsnjUO9WszdLles5Vcd0EYzxPNJdwmLjYfP+Jfbr4B5nktM4ZgeHSWtg==",
+                "hashPath": "opentelemetry.extensions.hosting.1.15.0.nupkg.sha512",
+                "type": "package",
+                "executables": {
+                    "lib/net10.0/OpenTelemetry.Extensions.Hosting.dll": {
+                        "assemblyVersion": "1.0.0.0",
+                        "legalCopyright": "Copyright The OpenTelemetry Authors",
+                        "comments": "Contains extensions to start OpenTelemetry in applications using Microsoft.Extensions.Hosting",
+                        "internalName": "OpenTelemetry.Extensions.Hosting.dll",
+                        "companyName": "OpenTelemetry Authors",
+                        "productName": "OpenTelemetry.Extensions.Hosting",
+                        "productVersion": "1.15.0+164d8a59ae4f8ae4d9b498981f1a2ea046d0513f"
+                    }
+                }
+            }
+        },
+        {
+            "id": "5dc67bf909998ef8",
+            "name": "OpenTelemetry.Instrumentation.AspNetCore",
+            "version": "1.15.0",
+            "type": "dotnet",
+            "foundBy": "dotnet-deps-binary-cataloger",
+            "locations": [
+                {
+                    "path": "/dotnet-simple.deps.json",
+                    "accessPath": "/dotnet-simple.deps.json",
+                    "annotations": {
+                        "evidence": "primary"
+                    }
+                },
+                {
+                    "path": "/OpenTelemetry.Instrumentation.AspNetCore.dll",
+                    "accessPath": "/OpenTelemetry.Instrumentation.AspNetCore.dll",
+                    "annotations": {
+                        "evidence": "supporting"
+                    }
+                }
+            ],
+            "licenses": [],
+            "language": "dotnet",
+            "cpes": [
+                {
+                    "cpe": "cpe:2.3:a:opentelemetry_instrumentation_aspnetcore:opentelemetry_instrumentation_aspnetcore_.net:1.15.0:*:*:*:*:*:*:*",
+                    "source": "syft-generated"
+                },
+                {
+                    "cpe": "cpe:2.3:a:opentelemetry_instrumentation_aspnetcore:opentelemetry_instrumentation_aspnetcore:1.15.0:*:*:*:*:*:*:*",
+                    "source": "syft-generated"
+                },
+                {
+                    "cpe": "cpe:2.3:a:opentelemetry_authors:opentelemetry_instrumentation_aspnetcore_.net:1.15.0:*:*:*:*:*:*:*",
+                    "source": "syft-generated"
+                },
+                {
+                    "cpe": "cpe:2.3:a:opentelemetry_authors:opentelemetry_instrumentation_aspnetcore:1.15.0:*:*:*:*:*:*:*",
+                    "source": "syft-generated"
+                }
+            ],
+            "purl": "pkg:nuget/OpenTelemetry.Instrumentation.AspNetCore@1.15.0",
+            "metadataType": "dotnet-deps-entry",
+            "metadata": {
+                "name": "OpenTelemetry.Instrumentation.AspNetCore",
+                "version": "1.15.0",
+                "path": "opentelemetry.instrumentation.aspnetcore/1.15.0",
+                "sha512": "sha512-mte1nRYefxjed2syXgVWq3UCfMKO7MkebvTZmf0O1aLgVgCktLsVjQ6mftyjIbWGBBCHN0wg+Glxj8BSFS70pQ==",
+                "hashPath": "opentelemetry.instrumentation.aspnetcore.1.15.0.nupkg.sha512",
+                "type": "package",
+                "executables": {
+                    "lib/net10.0/OpenTelemetry.Instrumentation.AspNetCore.dll": {
+                        "assemblyVersion": "1.15.0.901",
+                        "legalCopyright": "Copyright The OpenTelemetry Authors",
+                        "comments": "ASP.NET Core instrumentation for OpenTelemetry .NET",
+                        "internalName": "OpenTelemetry.Instrumentation.AspNetCore.dll",
+                        "companyName": "OpenTelemetry Authors",
+                        "productName": "OpenTelemetry.Instrumentation.AspNetCore",
+                        "productVersion": "1.15.0+0bb090260677c9b40b48acd3e0cac6d861a6ad37"
+                    }
+                }
+            }
+        },
+        {
+            "id": "fd40b6472b652456",
+            "name": "dotnet-simple",
+            "version": "1.0.0",
+            "type": "dotnet",
+            "foundBy": "dotnet-deps-binary-cataloger",
+            "locations": [
+                {
+                    "path": "/dotnet-simple.deps.json",
+                    "accessPath": "/dotnet-simple.deps.json",
+                    "annotations": {
+                        "evidence": "primary"
+                    }
+                },
+                {
+                    "path": "/dotnet-simple.dll",
+                    "accessPath": "/dotnet-simple.dll",
+                    "annotations": {
+                        "evidence": "supporting"
+                    }
+                }
+            ],
+            "licenses": [],
+            "language": "dotnet",
+            "cpes": [
+                {
+                    "cpe": "cpe:2.3:a:dotnet_simple:dotnet_simple_.net:1.0.0:*:*:*:*:*:*:*",
+                    "source": "syft-generated"
+                },
+                {
+                    "cpe": "cpe:2.3:a:dotnet_simple:dotnet_simple:1.0.0:*:*:*:*:*:*:*",
+                    "source": "syft-generated"
+                }
+            ],
+            "purl": "pkg:nuget/dotnet-simple@1.0.0",
+            "metadataType": "dotnet-deps-entry",
+            "metadata": {
+                "name": "dotnet-simple",
+                "version": "1.0.0",
+                "path": "",
+                "sha512": "",
+                "hashPath": "",
+                "type": "project",
+                "executables": {
+                    "dotnet-simple.dll": {
+                        "assemblyVersion": "1.0.0.0",
+                        "legalCopyright": "",
+                        "internalName": "dotnet-simple.dll",
+                        "companyName": "dotnet-simple",
+                        "productName": "dotnet-simple",
+                        "productVersion": "1.0.0+a792df1d36446e9e9cfe2e8e83c98786f5e78ce3"
+                    }
+                }
+            }
+        }
+    ],
+    "artifactRelationships": [
+        {
+            "parent": "1c2400251912c028",
+            "child": "302b0d417ed21a96",
+            "type": "dependency-of"
+        },
+        {
+            "parent": "1c2400251912c028",
+            "child": "aefbbad94648f22e",
+            "type": "evident-by",
+            "metadata": {
+                "kind": "supporting"
+            }
+        },
+        {
+            "parent": "1c2400251912c028",
+            "child": "dfe3999d569d4435",
+            "type": "evident-by",
+            "metadata": {
+                "kind": "primary"
+            }
+        },
+        {
+            "parent": "302b0d417ed21a96",
+            "child": "488424dec1f77a22",
+            "type": "dependency-of"
+        },
+        {
+            "parent": "302b0d417ed21a96",
+            "child": "5dc67bf909998ef8",
+            "type": "dependency-of"
+        },
+        {
+            "parent": "302b0d417ed21a96",
+            "child": "8762976dd76ff9fc",
+            "type": "evident-by",
+            "metadata": {
+                "kind": "supporting"
+            }
+        },
+        {
+            "parent": "302b0d417ed21a96",
+            "child": "dfe3999d569d4435",
+            "type": "evident-by",
+            "metadata": {
+                "kind": "primary"
+            }
+        },
+        {
+            "parent": "324d4b07ca1448b6",
+            "child": "3a016d21180168dc",
+            "type": "evident-by",
+            "metadata": {
+                "kind": "supporting"
+            }
+        },
+        {
+            "parent": "324d4b07ca1448b6",
+            "child": "dfe3999d569d4435",
+            "type": "evident-by",
+            "metadata": {
+                "kind": "primary"
+            }
+        },
+        {
+            "parent": "324d4b07ca1448b6",
+            "child": "fd40b6472b652456",
+            "type": "dependency-of"
+        },
+        {
+            "parent": "488424dec1f77a22",
+            "child": "324d4b07ca1448b6",
+            "type": "dependency-of"
+        },
+        {
+            "parent": "488424dec1f77a22",
+            "child": "8db734ef7f988e8b",
+            "type": "dependency-of"
+        },
+        {
+            "parent": "488424dec1f77a22",
+            "child": "dfe3999d569d4435",
+            "type": "evident-by",
+            "metadata": {
+                "kind": "primary"
+            }
+        },
+        {
+            "parent": "488424dec1f77a22",
+            "child": "edd93a268a521605",
+            "type": "evident-by",
+            "metadata": {
+                "kind": "supporting"
+            }
+        },
+        {
+            "parent": "5dc67bf909998ef8",
+            "child": "394dfabb7a7cf8eb",
+            "type": "evident-by",
+            "metadata": {
+                "kind": "supporting"
+            }
+        },
+        {
+            "parent": "5dc67bf909998ef8",
+            "child": "dfe3999d569d4435",
+            "type": "evident-by",
+            "metadata": {
+                "kind": "primary"
+            }
+        },
+        {
+            "parent": "5dc67bf909998ef8",
+            "child": "fd40b6472b652456",
+            "type": "dependency-of"
+        },
+        {
+            "parent": "8db734ef7f988e8b",
+            "child": "2152d1d27c136c63",
+            "type": "evident-by",
+            "metadata": {
+                "kind": "supporting"
+            }
+        },
+        {
+            "parent": "8db734ef7f988e8b",
+            "child": "dfe3999d569d4435",
+            "type": "evident-by",
+            "metadata": {
+                "kind": "primary"
+            }
+        },
+        {
+            "parent": "8db734ef7f988e8b",
+            "child": "fd40b6472b652456",
+            "type": "dependency-of"
+        },
+        {
+            "parent": "c002f921010d5d3ee507db9ac086e8a42b4a945c2ca577085c762382918f4b12",
+            "child": "1c2400251912c028",
+            "type": "contains"
+        },
+        {
+            "parent": "c002f921010d5d3ee507db9ac086e8a42b4a945c2ca577085c762382918f4b12",
+            "child": "302b0d417ed21a96",
+            "type": "contains"
+        },
+        {
+            "parent": "c002f921010d5d3ee507db9ac086e8a42b4a945c2ca577085c762382918f4b12",
+            "child": "324d4b07ca1448b6",
+            "type": "contains"
+        },
+        {
+            "parent": "c002f921010d5d3ee507db9ac086e8a42b4a945c2ca577085c762382918f4b12",
+            "child": "488424dec1f77a22",
+            "type": "contains"
+        },
+        {
+            "parent": "c002f921010d5d3ee507db9ac086e8a42b4a945c2ca577085c762382918f4b12",
+            "child": "5dc67bf909998ef8",
+            "type": "contains"
+        },
+        {
+            "parent": "c002f921010d5d3ee507db9ac086e8a42b4a945c2ca577085c762382918f4b12",
+            "child": "8db734ef7f988e8b",
+            "type": "contains"
+        },
+        {
+            "parent": "c002f921010d5d3ee507db9ac086e8a42b4a945c2ca577085c762382918f4b12",
+            "child": "fd40b6472b652456",
+            "type": "contains"
+        },
+        {
+            "parent": "fd40b6472b652456",
+            "child": "4706c8b073c9fae6",
+            "type": "evident-by",
+            "metadata": {
+                "kind": "supporting"
+            }
+        },
+        {
+            "parent": "fd40b6472b652456",
+            "child": "dfe3999d569d4435",
+            "type": "evident-by",
+            "metadata": {
+                "kind": "primary"
+            }
+        }
+    ],
+    "files": [
+        {
+            "id": "8762976dd76ff9fc",
+            "location": {
+                "path": "/OpenTelemetry.Api.ProviderBuilderExtensions.dll"
+            },
+            "metadata": {
+                "mode": 744,
+                "type": "RegularFile",
+                "userID": 1000,
+                "groupID": 1000,
+                "mimeType": "application/vnd.microsoft.portable-executable",
+                "size": 23552
+            },
+            "digests": [
+                {
+                    "algorithm": "sha1",
+                    "value": "26593a14bc0dbe9d1c6612a06a276eb20bcde3db"
+                },
+                {
+                    "algorithm": "sha256",
+                    "value": "27362eca171d2744e50a43087836d215a3b70b1b18457245cb4b24665f792862"
+                }
+            ],
+            "executable": {
+                "format": "pe",
+                "hasExports": false,
+                "hasEntrypoint": false,
+                "importedLibraries": []
+            }
+        },
+        {
+            "id": "aefbbad94648f22e",
+            "location": {
+                "path": "/OpenTelemetry.Api.dll"
+            },
+            "metadata": {
+                "mode": 744,
+                "type": "RegularFile",
+                "userID": 1000,
+                "groupID": 1000,
+                "mimeType": "application/vnd.microsoft.portable-executable",
+                "size": 64512
+            },
+            "digests": [
+                {
+                    "algorithm": "sha1",
+                    "value": "0fb255db24d3638e834bcbde6561ad77d131dc52"
+                },
+                {
+                    "algorithm": "sha256",
+                    "value": "f7bb001bfa6504f46c532dd57cdcdfdb3d18e307a2122015edd1811d49fa9db5"
+                }
+            ],
+            "executable": {
+                "format": "pe",
+                "hasExports": false,
+                "hasEntrypoint": false,
+                "importedLibraries": []
+            }
+        },
+        {
+            "id": "3a016d21180168dc",
+            "location": {
+                "path": "/OpenTelemetry.Exporter.Console.dll"
+            },
+            "metadata": {
+                "mode": 744,
+                "type": "RegularFile",
+                "userID": 1000,
+                "groupID": 1000,
+                "mimeType": "application/vnd.microsoft.portable-executable",
+                "size": 36864
+            },
+            "digests": [
+                {
+                    "algorithm": "sha1",
+                    "value": "c7b29046056bee20cf72abca8a70311a934ac362"
+                },
+                {
+                    "algorithm": "sha256",
+                    "value": "b8339786c12582abfc76c972639a570739d3a8f474d96716049eed7e03ed59fb"
+                }
+            ],
+            "executable": {
+                "format": "pe",
+                "hasExports": false,
+                "hasEntrypoint": false,
+                "importedLibraries": []
+            }
+        },
+        {
+            "id": "2152d1d27c136c63",
+            "location": {
+                "path": "/OpenTelemetry.Extensions.Hosting.dll"
+            },
+            "metadata": {
+                "mode": 744,
+                "type": "RegularFile",
+                "userID": 1000,
+                "groupID": 1000,
+                "mimeType": "application/vnd.microsoft.portable-executable",
+                "size": 10752
+            },
+            "digests": [
+                {
+                    "algorithm": "sha1",
+                    "value": "1fb27210192d62da7c5b071370b4e6edcb8742d4"
+                },
+                {
+                    "algorithm": "sha256",
+                    "value": "bc79d7cc354b79372378604293cd06ab5048bbf3813ca03a6127f004fe2ee7de"
+                }
+            ],
+            "executable": {
+                "format": "pe",
+                "hasExports": false,
+                "hasEntrypoint": false,
+                "importedLibraries": []
+            }
+        },
+        {
+            "id": "394dfabb7a7cf8eb",
+            "location": {
+                "path": "/OpenTelemetry.Instrumentation.AspNetCore.dll"
+            },
+            "metadata": {
+                "mode": 744,
+                "type": "RegularFile",
+                "userID": 1000,
+                "groupID": 1000,
+                "mimeType": "application/vnd.microsoft.portable-executable",
+                "size": 65024
+            },
+            "digests": [
+                {
+                    "algorithm": "sha1",
+                    "value": "864977fb014c266bea216b91712239e06d5f8c90"
+                },
+                {
+                    "algorithm": "sha256",
+                    "value": "2e1af29fe7f461874ed0b3b92cec824282a4d85aed2827b533950f0360f5e618"
+                }
+            ],
+            "executable": {
+                "format": "pe",
+                "hasExports": false,
+                "hasEntrypoint": false,
+                "importedLibraries": []
+            }
+        },
+        {
+            "id": "edd93a268a521605",
+            "location": {
+                "path": "/OpenTelemetry.dll"
+            },
+            "metadata": {
+                "mode": 744,
+                "type": "RegularFile",
+                "userID": 1000,
+                "groupID": 1000,
+                "mimeType": "application/vnd.microsoft.portable-executable",
+                "size": 229888
+            },
+            "digests": [
+                {
+                    "algorithm": "sha1",
+                    "value": "ab7ba6e439e417231de80862b62478e306955f5d"
+                },
+                {
+                    "algorithm": "sha256",
+                    "value": "41b36422efa85f7c4d448abd217338656d6e3fa19e4c6915b272d6d85ade28d0"
+                }
+            ],
+            "executable": {
+                "format": "pe",
+                "hasExports": false,
+                "hasEntrypoint": false,
+                "importedLibraries": []
+            }
+        },
+        {
+            "id": "adb500a394656283",
+            "location": {
+                "path": "/dotnet-simple"
+            },
+            "executable": {
+                "format": "elf",
+                "hasExports": false,
+                "hasEntrypoint": true,
+                "importedLibraries": [
+                    "libdl.so.2",
+                    "libpthread.so.0",
+                    "libstdc++.so.6",
+                    "libm.so.6",
+                    "libgcc_s.so.1",
+                    "libc.so.6",
+                    "ld-linux-aarch64.so.1"
+                ],
+                "elfSecurityFeatures": {
+                    "symbolTableStripped": true,
+                    "stackCanary": true,
+                    "nx": true,
+                    "relRO": "full",
+                    "pie": true,
+                    "dso": true,
+                    "safeStack": false
+                }
+            },
+            "unknowns": [
+                "unknowns-labeler: no package identified in executable file"
+            ]
+        },
+        {
+            "id": "dfe3999d569d4435",
+            "location": {
+                "path": "/dotnet-simple.deps.json"
+            },
+            "metadata": {
+                "mode": 644,
+                "type": "RegularFile",
+                "userID": 1000,
+                "groupID": 1000,
+                "mimeType": "application/json",
+                "size": 4585
+            },
+            "digests": [
+                {
+                    "algorithm": "sha1",
+                    "value": "9f8eca3935b9a63a78652fa9de1f09e43d953332"
+                },
+                {
+                    "algorithm": "sha256",
+                    "value": "a6297a16eaa4613a5715df373bb573a25289d3ab772672b46647f2548fc30079"
+                }
+            ]
+        },
+        {
+            "id": "4706c8b073c9fae6",
+            "location": {
+                "path": "/dotnet-simple.dll"
+            },
+            "metadata": {
+                "mode": 644,
+                "type": "RegularFile",
+                "userID": 1000,
+                "groupID": 1000,
+                "mimeType": "application/vnd.microsoft.portable-executable",
+                "size": 8704
+            },
+            "digests": [
+                {
+                    "algorithm": "sha1",
+                    "value": "6f88a96dad1f9a12fabf336f0d6e5447bb0828f4"
+                },
+                {
+                    "algorithm": "sha256",
+                    "value": "9711beac735fdd4c8d31ec699665466dc2718ab950ba08b7114c4d1cf96eabef"
+                }
+            ],
+            "executable": {
+                "format": "pe",
+                "hasExports": false,
+                "hasEntrypoint": false,
+                "importedLibraries": []
+            }
+        }
+    ],
+    "source": {
+        "id": "c002f921010d5d3ee507db9ac086e8a42b4a945c2ca577085c762382918f4b12",
+        "name": "./bin/Release/net10.0/publish",
+        "version": "",
+        "type": "directory",
+        "metadata": {
+            "path": "./bin/Release/net10.0/publish"
+        }
+    },
+    "distro": {},
+    "descriptor": {
+        "name": "syft",
+        "version": "1.42.1",
+        "configuration": {
+            "catalogers": {
+                "requested": {
+                    "default": [
+                        "directory",
+                        "file"
+                    ]
+                },
+                "used": [
+                    "alpm-db-cataloger",
+                    "apk-db-cataloger",
+                    "binary-classifier-cataloger",
+                    "cargo-auditable-binary-cataloger",
+                    "cocoapods-cataloger",
+                    "conan-cataloger",
+                    "conda-meta-cataloger",
+                    "dart-pubspec-cataloger",
+                    "dart-pubspec-lock-cataloger",
+                    "deb-archive-cataloger",
+                    "dotnet-deps-binary-cataloger",
+                    "dotnet-packages-lock-cataloger",
+                    "dpkg-db-cataloger",
+                    "elf-binary-package-cataloger",
+                    "elixir-mix-lock-cataloger",
+                    "erlang-otp-application-cataloger",
+                    "erlang-rebar-lock-cataloger",
+                    "file-content-cataloger",
+                    "file-digest-cataloger",
+                    "file-executable-cataloger",
+                    "file-metadata-cataloger",
+                    "gguf-cataloger",
+                    "github-action-workflow-usage-cataloger",
+                    "github-actions-usage-cataloger",
+                    "go-module-binary-cataloger",
+                    "go-module-file-cataloger",
+                    "graalvm-native-image-cataloger",
+                    "haskell-cataloger",
+                    "homebrew-cataloger",
+                    "java-archive-cataloger",
+                    "java-gradle-lockfile-cataloger",
+                    "java-jvm-cataloger",
+                    "java-pom-cataloger",
+                    "javascript-lock-cataloger",
+                    "linux-kernel-cataloger",
+                    "lua-rock-cataloger",
+                    "nix-cataloger",
+                    "opam-cataloger",
+                    "pe-binary-package-cataloger",
+                    "php-composer-lock-cataloger",
+                    "php-interpreter-cataloger",
+                    "php-pear-serialized-cataloger",
+                    "portage-cataloger",
+                    "python-installed-package-cataloger",
+                    "python-package-cataloger",
+                    "r-package-cataloger",
+                    "rpm-archive-cataloger",
+                    "rpm-db-cataloger",
+                    "ruby-gemfile-cataloger",
+                    "ruby-gemspec-cataloger",
+                    "rust-cargo-lock-cataloger",
+                    "snap-cataloger",
+                    "swift-package-manager-cataloger",
+                    "swipl-pack-cataloger",
+                    "terraform-lock-cataloger",
+                    "wordpress-plugins-cataloger"
+                ]
+            },
+            "data-generation": {
+                "generate-cpes": true
+            },
+            "files": {
+                "content": {
+                    "globs": null,
+                    "skip-files-above-size": 0
+                },
+                "hashers": [
+                    "sha-1",
+                    "sha-256"
+                ],
+                "selection": "owned-by-package"
+            },
+            "licenses": {
+                "coverage": 75,
+                "include-content": "none"
+            },
+            "packages": {
+                "binary": [
+                    "python-binary",
+                    "python-binary-lib",
+                    "pypy-binary-lib",
+                    "go-binary",
+                    "julia-binary",
+                    "helm",
+                    "redis-binary",
+                    "valkey-binary",
+                    "nodejs-binary",
+                    "busybox-binary",
+                    "util-linux-binary",
+                    "haproxy-binary",
+                    "perl-binary",
+                    "php-composer-binary",
+                    "httpd-binary",
+                    "memcached-binary",
+                    "traefik-binary",
+                    "arangodb-binary",
+                    "postgresql-binary",
+                    "mysql-binary",
+                    "mysql-binary",
+                    "mysql-binary",
+                    "xtrabackup-binary",
+                    "mariadb-binary",
+                    "rust-standard-library-linux",
+                    "rust-standard-library-macos",
+                    "ruby-binary",
+                    "erlang-binary",
+                    "erlang-alpine-binary",
+                    "erlang-library",
+                    "swipl-binary",
+                    "dart-binary",
+                    "haskell-ghc-binary",
+                    "haskell-cabal-binary",
+                    "haskell-stack-binary",
+                    "consul-binary",
+                    "hashicorp-vault-binary",
+                    "nginx-binary",
+                    "bash-binary",
+                    "openssl-binary",
+                    "qt-qtbase-lib",
+                    "gcc-binary",
+                    "fluent-bit-binary",
+                    "wordpress-cli-binary",
+                    "curl-binary",
+                    "lighttpd-binary",
+                    "proftpd-binary",
+                    "zstd-binary",
+                    "xz-binary",
+                    "gzip-binary",
+                    "sqlcipher-binary",
+                    "jq-binary",
+                    "chrome-binary",
+                    "ffmpeg-binary",
+                    "ffmpeg-library",
+                    "ffmpeg-library",
+                    "elixir-binary",
+                    "elixir-library",
+                    "istio-binary",
+                    "istio-binary",
+                    "grafana-binary",
+                    "grafana-binary",
+                    "envoy-binary",
+                    "mongodb-binary",
+                    "java-binary",
+                    "java-jdb-binary"
+                ],
+                "dotnet": {
+                    "dep-packages-must-claim-dll": true,
+                    "dep-packages-must-have-dll": false,
+                    "exclude-project-references": true,
+                    "propagate-dll-claims-to-parents": true,
+                    "relax-dll-claims-when-bundling-detected": true
+                },
+                "golang": {
+                    "local-mod-cache-dir": "/home/parallels/go/pkg/mod",
+                    "local-vendor-dir": "",
+                    "main-module-version": {
+                        "from-build-settings": true,
+                        "from-contents": false,
+                        "from-ld-flags": true
+                    },
+                    "proxies": [
+                        "https://proxy.golang.org",
+                        "direct"
+                    ],
+                    "search-local-mod-cache-licenses": false,
+                    "search-local-vendor-licenses": false,
+                    "search-remote-licenses": false,
+                    "use-packages-lib": true
+                },
+                "java-archive": {
+                    "include-indexed-archives": true,
+                    "include-unindexed-archives": false,
+                    "maven-base-url": "https://repo1.maven.org/maven2",
+                    "maven-localrepository-dir": "/home/parallels/.m2/repository",
+                    "max-parent-recursive-depth": 0,
+                    "resolve-transitive-dependencies": false,
+                    "use-maven-localrepository": false,
+                    "use-network": false
+                },
+                "javascript": {
+                    "include-dev-dependencies": false,
+                    "npm-base-url": "https://registry.npmjs.org",
+                    "search-remote-licenses": false
+                },
+                "linux-kernel": {
+                    "catalog-modules": true
+                },
+                "nix": {
+                    "capture-owned-files": false
+                },
+                "python": {
+                    "guess-unpinned-requirements": false,
+                    "pypi-base-url": "https://pypi.org/pypi",
+                    "search-remote-licenses": false
+                }
+            },
+            "relationships": {
+                "exclude-binary-packages-with-file-ownership-overlap": true,
+                "package-file-ownership": true,
+                "package-file-ownership-overlap": true
+            },
+            "search": {
+                "scope": "squashed"
+            }
+        }
+    },
+    "schema": {
+        "version": "16.1.3",
+        "url": "https://raw.githubusercontent.com/anchore/syft/main/schema/json/schema-16.1.3.json"
+    }
+}
