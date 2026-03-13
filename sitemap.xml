@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+         <loc>https://danielpacak.github.io/vulnerable-kubernetes-deployments/</loc>
+         <lastmod>2026-03-13</lastmod>
+    </url>
+    <url>
+         <loc>https://danielpacak.github.io/vulnerable-kubernetes-deployments/hello-fastapi/</loc>
+         <lastmod>2026-03-13</lastmod>
+    </url>
+    <url>
+         <loc>https://danielpacak.github.io/vulnerable-kubernetes-deployments/hello-flask/</loc>
+         <lastmod>2026-03-13</lastmod>
+    </url>
+    <url>
+         <loc>https://danielpacak.github.io/vulnerable-kubernetes-deployments/pgadmin/</loc>
+         <lastmod>2026-03-13</lastmod>
+    </url>
+    <url>
+         <loc>https://danielpacak.github.io/vulnerable-kubernetes-deployments/pygoat/</loc>
+         <lastmod>2026-03-13</lastmod>
+    </url>
+    <url>
+         <loc>https://danielpacak.github.io/vulnerable-kubernetes-deployments/railsgoat/</loc>
+         <lastmod>2026-03-13</lastmod>
+    </url>
+</urlset>
