@@ -1,0 +1,50 @@
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: fastmcp2-weather-server
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: fastmcp2-weather-server
+  namespace: fastmcp2-weather-server
+  labels:
+    app: fastmcp2-weather-server
+spec:
+  type: ClusterIP
+  selector:
+    app: fastmcp2-weather-server
+  ports:
+    - name: http
+      port: 8020
+      protocol: TCP
+      targetPort: 8020
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fastmcp2-weather-server
+  namespace: fastmcp2-weather-server
+  labels:
+    app: fastmcp2-weather-server
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: fastmcp2-weather-server
+  template:
+    metadata:
+      labels:
+        app: fastmcp2-weather-server
+    spec:
+      containers:
+        - name: fastmcp2-weather-server
+          image: danielpacak/fastmcp2-weather-server
+          imagePullPolicy: Always
+          env:
+            - name: ACCUWEATHER_API_KEY
+              value: "YOUR API KEY"
+          ports:
+            - containerPort: 8020
+              name: http
