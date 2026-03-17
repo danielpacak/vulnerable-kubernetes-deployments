@@ -1,0 +1,60 @@
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: mcp-inspector
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mcp-inspector
+  namespace: mcp-inspector
+  labels:
+    app: mcp-inspector
+spec:
+  type: ClusterIP
+  selector:
+    app: mcp-inspector
+  ports:
+    - name: http
+      port: 6274
+      protocol: TCP
+      targetPort: 6274
+    - name: proxy
+      port: 6277
+      protocol: TCP
+      targetPort: 6277
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mcp-inspector
+  namespace: mcp-inspector
+  labels:
+    app: mcp-inspector  
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mcp-inspector
+  template:
+    metadata:
+      labels:
+        app: mcp-inspector
+    spec:
+      containers:
+        - name: mcp-inspector
+          image: ghcr.io/modelcontextprotocol/inspector:latest
+          imagePullPolicy: IfNotPresent
+          env:
+            - name: MCP_AUTO_OPEN_ENABLED
+              value: "false"
+            - name: HOST
+              value: "0.0.0.0"
+            - name: DANGEROUSLY_OMIT_AUTH
+              value: "false"
+          ports:
+            - containerPort: 6274
+              name: http
+            - containerPort: 6277
+              name: proxy
