@@ -37,4 +37,4 @@ EXPOSE 8020
 
 WORKDIR /app
 
-CMD ["uvicorn", "fastmcp2_weather_server:app", "--host", "0.0.0.0", "--port", "8020"]
+CMD ["uvicorn", "server:app", "--host", "0.0.0.0", "--port", "8020"]
