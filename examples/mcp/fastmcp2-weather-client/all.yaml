@@ -1,0 +1,50 @@
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: fastmcp2-weather-client
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: fastmcp2-weather-client
+  namespace: fastmcp2-weather-client
+  labels:
+    app: fastmcp2-weather-client
+spec:
+  type: ClusterIP
+  selector:
+    app: fastmcp2-weather-client
+  ports:
+    - name: http
+      port: 8000
+      protocol: TCP
+      targetPort: 8000
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fastmcp2-weather-client
+  namespace: fastmcp2-weather-client
+  labels:
+    app: fastmcp2-weather-client
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: fastmcp2-weather-client
+  template:
+    metadata:
+      labels:
+        app: fastmcp2-weather-client
+    spec:
+      containers:
+        - name: fastmcp2-weather-client
+          image: danielpacak/fastmcp2-weather-client
+          imagePullPolicy: Always
+          env:
+            - name: FASTMCP_WEATHER_SERVER_URL
+              value: "http://fastmcp2-weather-server.fastmcp2-weather-server:8020/mcp"
+          ports:
+            - containerPort: 8000
+              name: http
