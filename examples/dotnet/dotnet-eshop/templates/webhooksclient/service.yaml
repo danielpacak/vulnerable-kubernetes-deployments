@@ -1,0 +1,20 @@
+---
+apiVersion: "v1"
+kind: "Service"
+metadata:
+  name: "webhooksclient-service"
+  labels:
+    app.kubernetes.io/name: "eshop-apphost"
+    app.kubernetes.io/component: "webhooksclient"
+    app.kubernetes.io/instance: "{{ .Release.Name }}"
+spec:
+  type: "ClusterIP"
+  selector:
+    app.kubernetes.io/name: "eshop-apphost"
+    app.kubernetes.io/component: "webhooksclient"
+    app.kubernetes.io/instance: "{{ .Release.Name }}"
+  ports:
+    - name: "http"
+      protocol: "TCP"
+      port: {{ .Values.parameters.webhooksclient.port_http | int }}
+      targetPort: {{ .Values.parameters.webhooksclient.port_http | int }}

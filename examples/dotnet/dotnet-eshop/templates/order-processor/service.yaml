@@ -1,0 +1,20 @@
+---
+apiVersion: "v1"
+kind: "Service"
+metadata:
+  name: "order-processor-service"
+  labels:
+    app.kubernetes.io/name: "eshop-apphost"
+    app.kubernetes.io/component: "order-processor"
+    app.kubernetes.io/instance: "{{ .Release.Name }}"
+spec:
+  type: "ClusterIP"
+  selector:
+    app.kubernetes.io/name: "eshop-apphost"
+    app.kubernetes.io/component: "order-processor"
+    app.kubernetes.io/instance: "{{ .Release.Name }}"
+  ports:
+    - name: "http"
+      protocol: "TCP"
+      port: {{ .Values.parameters.order_processor.port_http | int }}
+      targetPort: {{ .Values.parameters.order_processor.port_http | int }}

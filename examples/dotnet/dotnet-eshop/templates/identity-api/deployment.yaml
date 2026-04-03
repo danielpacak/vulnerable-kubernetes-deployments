@@ -1,0 +1,42 @@
+---
+apiVersion: "apps/v1"
+kind: "Deployment"
+metadata:
+  name: "identity-api-deployment"
+  labels:
+    app.kubernetes.io/name: "eshop-apphost"
+    app.kubernetes.io/component: "identity-api"
+    app.kubernetes.io/instance: "{{ .Release.Name }}"
+spec:
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: "eshop-apphost"
+        app.kubernetes.io/component: "identity-api"
+        app.kubernetes.io/instance: "{{ .Release.Name }}"
+    spec:
+      containers:
+        - image: "{{ .Values.parameters.identity_api.identity_api_image }}"
+          name: "identity-api"
+          envFrom:
+            - configMapRef:
+                name: "identity-api-config"
+            - secretRef:
+                name: "identity-api-secrets"
+          ports:
+            - name: "http"
+              protocol: "TCP"
+              containerPort: {{ .Values.parameters.identity_api.port_http | int }}
+          imagePullPolicy: "IfNotPresent"
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: "eshop-apphost"
+      app.kubernetes.io/component: "identity-api"
+      app.kubernetes.io/instance: "{{ .Release.Name }}"
+  replicas: 1
+  revisionHistoryLimit: 3
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+    type: "RollingUpdate"

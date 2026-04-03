@@ -1,0 +1,40 @@
+---
+apiVersion: "apps/v1"
+kind: "Deployment"
+metadata:
+  name: "webhooksclient-deployment"
+  labels:
+    app.kubernetes.io/name: "eshop-apphost"
+    app.kubernetes.io/component: "webhooksclient"
+    app.kubernetes.io/instance: "{{ .Release.Name }}"
+spec:
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: "eshop-apphost"
+        app.kubernetes.io/component: "webhooksclient"
+        app.kubernetes.io/instance: "{{ .Release.Name }}"
+    spec:
+      containers:
+        - image: "{{ .Values.parameters.webhooksclient.webhooksclient_image }}"
+          name: "webhooksclient"
+          envFrom:
+            - configMapRef:
+                name: "webhooksclient-config"
+          ports:
+            - name: "http"
+              protocol: "TCP"
+              containerPort: {{ .Values.parameters.webhooksclient.port_http | int }}
+          imagePullPolicy: "IfNotPresent"
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: "eshop-apphost"
+      app.kubernetes.io/component: "webhooksclient"
+      app.kubernetes.io/instance: "{{ .Release.Name }}"
+  replicas: 1
+  revisionHistoryLimit: 3
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+    type: "RollingUpdate"

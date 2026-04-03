@@ -1,0 +1,22 @@
+---
+apiVersion: "v1"
+kind: "ConfigMap"
+metadata:
+  name: "ordering-api-config"
+  labels:
+    app.kubernetes.io/name: "eshop-apphost"
+    app.kubernetes.io/component: "ordering-api"
+    app.kubernetes.io/instance: "{{ .Release.Name }}"
+data:
+  OTEL_DOTNET_EXPERIMENTAL_OTLP_RETRY: "{{ .Values.config.ordering_api.OTEL_DOTNET_EXPERIMENTAL_OTLP_RETRY }}"
+  ASPNETCORE_FORWARDEDHEADERS_ENABLED: "{{ .Values.config.ordering_api.ASPNETCORE_FORWARDEDHEADERS_ENABLED }}"
+  HTTP_PORTS: "{{ .Values.parameters.ordering_api.port_http }}"
+  EVENTBUS_HOST: "{{ .Values.config.ordering_api.EVENTBUS_HOST }}"
+  EVENTBUS_PORT: "{{ .Values.config.ordering_api.EVENTBUS_PORT }}"
+  EVENTBUS_USERNAME: "{{ .Values.config.ordering_api.EVENTBUS_USERNAME }}"
+  ORDERINGDB_HOST: "{{ .Values.config.ordering_api.ORDERINGDB_HOST }}"
+  ORDERINGDB_PORT: "{{ .Values.config.ordering_api.ORDERINGDB_PORT }}"
+  ORDERINGDB_USERNAME: "{{ .Values.config.ordering_api.ORDERINGDB_USERNAME }}"
+  ORDERINGDB_JDBCCONNECTIONSTRING: "{{ .Values.config.ordering_api.ORDERINGDB_JDBCCONNECTIONSTRING }}"
+  ORDERINGDB_DATABASENAME: "{{ .Values.config.ordering_api.ORDERINGDB_DATABASENAME }}"
+  Identity__Url: "https://identity-api-service:{{ .Values.parameters.identity_api.port_http }}"

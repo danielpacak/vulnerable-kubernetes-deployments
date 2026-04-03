@@ -1,0 +1,19 @@
+---
+apiVersion: "v1"
+kind: "ConfigMap"
+metadata:
+  name: "webhooksclient-config"
+  labels:
+    app.kubernetes.io/name: "eshop-apphost"
+    app.kubernetes.io/component: "webhooksclient"
+    app.kubernetes.io/instance: "{{ .Release.Name }}"
+data:
+  OTEL_DOTNET_EXPERIMENTAL_OTLP_RETRY: "{{ .Values.config.webhooksclient.OTEL_DOTNET_EXPERIMENTAL_OTLP_RETRY }}"
+  ASPNETCORE_FORWARDEDHEADERS_ENABLED: "{{ .Values.config.webhooksclient.ASPNETCORE_FORWARDEDHEADERS_ENABLED }}"
+  HTTP_PORTS: "{{ .Values.parameters.webhooksclient.port_http }}"
+  WEBHOOKS_API_HTTP: "http://webhooks-api-service:{{ .Values.parameters.webhooks_api.port_http }}"
+  services__webhooks-api__http__0: "http://webhooks-api-service:{{ .Values.parameters.webhooks_api.port_http }}"
+  WEBHOOKS_API_HTTPS: "https://webhooks-api-service:{{ .Values.parameters.webhooks_api.port_http }}"
+  services__webhooks-api__https__0: "https://webhooks-api-service:{{ .Values.parameters.webhooks_api.port_http }}"
+  IdentityUrl: "https://identity-api-service:{{ .Values.parameters.identity_api.port_http }}"
+  CallBackUrl: "https://webhooksclient-service:{{ .Values.parameters.webhooksclient.port_http }}"

@@ -1,0 +1,22 @@
+---
+apiVersion: "v1"
+kind: "ConfigMap"
+metadata:
+  name: "webhooks-api-config"
+  labels:
+    app.kubernetes.io/name: "eshop-apphost"
+    app.kubernetes.io/component: "webhooks-api"
+    app.kubernetes.io/instance: "{{ .Release.Name }}"
+data:
+  OTEL_DOTNET_EXPERIMENTAL_OTLP_RETRY: "{{ .Values.config.webhooks_api.OTEL_DOTNET_EXPERIMENTAL_OTLP_RETRY }}"
+  ASPNETCORE_FORWARDEDHEADERS_ENABLED: "{{ .Values.config.webhooks_api.ASPNETCORE_FORWARDEDHEADERS_ENABLED }}"
+  HTTP_PORTS: "{{ .Values.parameters.webhooks_api.port_http }}"
+  EVENTBUS_HOST: "{{ .Values.config.webhooks_api.EVENTBUS_HOST }}"
+  EVENTBUS_PORT: "{{ .Values.config.webhooks_api.EVENTBUS_PORT }}"
+  EVENTBUS_USERNAME: "{{ .Values.config.webhooks_api.EVENTBUS_USERNAME }}"
+  WEBHOOKSDB_HOST: "{{ .Values.config.webhooks_api.WEBHOOKSDB_HOST }}"
+  WEBHOOKSDB_PORT: "{{ .Values.config.webhooks_api.WEBHOOKSDB_PORT }}"
+  WEBHOOKSDB_USERNAME: "{{ .Values.config.webhooks_api.WEBHOOKSDB_USERNAME }}"
+  WEBHOOKSDB_JDBCCONNECTIONSTRING: "{{ .Values.config.webhooks_api.WEBHOOKSDB_JDBCCONNECTIONSTRING }}"
+  WEBHOOKSDB_DATABASENAME: "{{ .Values.config.webhooks_api.WEBHOOKSDB_DATABASENAME }}"
+  Identity__Url: "https://identity-api-service:{{ .Values.parameters.identity_api.port_http }}"

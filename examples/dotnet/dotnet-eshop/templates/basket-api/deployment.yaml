@@ -1,0 +1,42 @@
+---
+apiVersion: "apps/v1"
+kind: "Deployment"
+metadata:
+  name: "basket-api-deployment"
+  labels:
+    app.kubernetes.io/name: "eshop-apphost"
+    app.kubernetes.io/component: "basket-api"
+    app.kubernetes.io/instance: "{{ .Release.Name }}"
+spec:
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: "eshop-apphost"
+        app.kubernetes.io/component: "basket-api"
+        app.kubernetes.io/instance: "{{ .Release.Name }}"
+    spec:
+      containers:
+        - image: "{{ .Values.parameters.basket_api.basket_api_image }}"
+          name: "basket-api"
+          envFrom:
+            - configMapRef:
+                name: "basket-api-config"
+            - secretRef:
+                name: "basket-api-secrets"
+          ports:
+            - name: "http"
+              protocol: "TCP"
+              containerPort: {{ .Values.parameters.basket_api.port_http | int }}
+          imagePullPolicy: "IfNotPresent"
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: "eshop-apphost"
+      app.kubernetes.io/component: "basket-api"
+      app.kubernetes.io/instance: "{{ .Release.Name }}"
+  replicas: 1
+  revisionHistoryLimit: 3
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+    type: "RollingUpdate"

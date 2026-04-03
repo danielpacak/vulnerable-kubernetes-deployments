@@ -1,0 +1,23 @@
+---
+apiVersion: "v1"
+kind: "ConfigMap"
+metadata:
+  name: "identity-api-config"
+  labels:
+    app.kubernetes.io/name: "eshop-apphost"
+    app.kubernetes.io/component: "identity-api"
+    app.kubernetes.io/instance: "{{ .Release.Name }}"
+data:
+  OTEL_DOTNET_EXPERIMENTAL_OTLP_RETRY: "{{ .Values.config.identity_api.OTEL_DOTNET_EXPERIMENTAL_OTLP_RETRY }}"
+  ASPNETCORE_FORWARDEDHEADERS_ENABLED: "{{ .Values.config.identity_api.ASPNETCORE_FORWARDEDHEADERS_ENABLED }}"
+  HTTP_PORTS: "{{ .Values.parameters.identity_api.port_http }}"
+  IDENTITYDB_HOST: "{{ .Values.config.identity_api.IDENTITYDB_HOST }}"
+  IDENTITYDB_PORT: "{{ .Values.config.identity_api.IDENTITYDB_PORT }}"
+  IDENTITYDB_USERNAME: "{{ .Values.config.identity_api.IDENTITYDB_USERNAME }}"
+  IDENTITYDB_JDBCCONNECTIONSTRING: "{{ .Values.config.identity_api.IDENTITYDB_JDBCCONNECTIONSTRING }}"
+  IDENTITYDB_DATABASENAME: "{{ .Values.config.identity_api.IDENTITYDB_DATABASENAME }}"
+  BasketApiClient: "http://basket-api-service:{{ .Values.parameters.basket_api.port_http }}"
+  OrderingApiClient: "http://ordering-api-service:{{ .Values.parameters.ordering_api.port_http }}"
+  WebhooksApiClient: "http://webhooks-api-service:{{ .Values.parameters.webhooks_api.port_http }}"
+  WebhooksWebClient: "https://webhooksclient-service:{{ .Values.parameters.webhooksclient.port_http }}"
+  WebAppClient: "https://webapp-service:{{ .Values.parameters.webapp.port_http }}"

@@ -1,0 +1,44 @@
+parameters:
+  webhooksclient:
+    webhooksclient_image: "docker.io/danielpacak/dotnet-eshop-webhooksclient:latest"
+  webhooks_api:
+    webhooks_api_image: "docker.io/danielpacak/dotnet-eshop-webhooks-api:latest"
+  basket_api:
+    basket_api_image: "danielpacak/dotnet-eshop-basket-api:latest"
+  catalog_api:
+   catalog_api_image: "danielpacak/dotnet-eshop-catalog-api:latest"
+  identity_api:
+    identity_api_image: "danielpacak/dotnet-eshop-identity-api:latest"
+  order_processor:
+    order_processor_image: "danielpacak/dotnet-eshop-order-processor:latest"
+  ordering_api:
+    ordering_api_image: "danielpacak/dotnet-eshop-ordering-api:latest"
+  payment_processor:
+    payment_processor_image: "danielpacak/dotnet-eshop-payment-processor:latest"
+  webapp:
+    webapp_image: "danielpacak/dotnet-eshop-webapp:latest"
+secrets:
+  redis:
+    redis_password: "s3cret"
+  eventbus: 
+    eventbus_password: "s3cret"
+  postgres:
+    postgres_password: "s3cret"
+  webhooks_api:
+    postgres_password: "s3cret"
+  webapp:
+    eventbus_password: "s3cret"
+  payment_processor:
+    eventbus_password: "s3cret"
+  ordering_api:
+    eventbus_password: "s3cret"
+    postgres_password: "s3cret"
+  order_processor:
+   eventbus_password: "s3cret"
+  identity_api:
+    postgres_password: "s3cret"
+  catalog_api:
+   eventbus_password: "s3cret"
+   postgres_password: "s3cret"
+  basket_api:
+   redis_password: "s3cret"
