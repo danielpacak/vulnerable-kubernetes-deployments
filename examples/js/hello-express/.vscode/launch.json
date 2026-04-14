@@ -1,0 +1,35 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Hello Express",
+            "type": "node",
+            "request": "launch",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "program": "${workspaceFolder}/app.js",
+            "runtimeExecutable": "/home/dpacak/.local/share/mise/installs/node/24.14.1/bin/node",
+            "env": {
+                "NODE_DEBUG": "http"
+            }
+        },
+        {
+            "name": "Test Drive",
+            "type": "node",
+            "request": "launch",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "program": "${workspaceFolder}/testdrive.js",
+            //"runtimeExecutable": "/home/dpacak/.local/share/mise/installs/node/24.14.1/bin/node"
+            "runtimeExecutable": "/home/dpacak/.local/share/mise/installs/node/14.21.3/bin/node",
+            "env": {
+                "NODE_DEBUG": "http,http2"
+            }
+        }
+    ]
+}

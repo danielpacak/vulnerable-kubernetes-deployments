@@ -3,7 +3,30 @@
 The simplest Express app with the `GET /process/exec` endpoint to capture Node
 stack trace that led to command execution.
 
-## Build and Run
+## CVE-2026-40175
+CVE-2025-62718
+
+docker push danielpacak/hello-express:node24-bookworm-production
+
+## Build and Run Locally
+
+```
+mise use node@24
+```
+
+```
+npm install && npm start
+```
+
+
+## Build and Run in Docker
+
+```
+docker build \
+  --build-arg NODE_VERSION=24 \
+  --build-arg NODE_ENV=production \
+  --tag danielpacak/hello-express:node24-bookworm-production .
+```
 
 ```
 docker build \

@@ -1,8 +1,8 @@
 # syntax=docker/dockerfile:1
 
-ARG NODE_VERSION=20
+ARG NODE_VERSION=24
 
-FROM node:${NODE_VERSION}-bullseye-slim
+FROM node:${NODE_VERSION}-bookworm-slim
 ARG NODE_ENV=production
 # Use production node environment by default.
 ENV NODE_ENV=${NODE_ENV}
