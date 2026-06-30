@@ -39,7 +39,7 @@ spec:
     spec:
       containers:
         - name: hello-flask
-          image: docker.io/danielpacak/python-hello-flask:python3.10-glibc
+          image: ghcr.io/danielpacak/python-hello-flask:python3.10-glibc
           imagePullPolicy: IfNotPresent
           env:
             - name: HELLO_FLASK_MEMORY_BYTES

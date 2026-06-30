@@ -86,7 +86,7 @@ spec:
       automountServiceAccountToken: true
       containers:
         - name: hello-flask
-          image: docker.io/danielpacak/python-hello-flask:python3.9-glibc
+          image: ghcr.io/danielpacak/python-hello-flask:python3.9-glibc
           imagePullPolicy: IfNotPresent
           env:
             - name: HELLO_FLASK_MEMORY_BYTES

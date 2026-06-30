@@ -25,11 +25,11 @@ Open <http://localhost:5050> in your web browser.
 
 ```
 cd examples/python/hello-flask-python3.13
-docker buildx build --load -t docker.io/danielpacak/python-hello-flask:python3.13-glibc -f Dockerfile .
+docker buildx build --load -t ghcr.io/danielpacak/python-hello-flask:python3.13-glibc -f Dockerfile .
 ```
 
 ```
-docker run --rm -it --name python-hello-flask -p 5050:5050 docker.io/danielpacak/python-hello-flask:python3.13-glibc
+docker run --rm -it --name python-hello-flask -p 5050:5050 ghcr.io/danielpacak/python-hello-flask:python3.13-glibc
 ```
 
 Open <http://localhost:5050> in your web browser.
