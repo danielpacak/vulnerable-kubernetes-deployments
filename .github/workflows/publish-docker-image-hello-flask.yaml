@@ -1,0 +1,71 @@
+name: Publish Docker Image - Hello Flask
+
+on:
+  workflow_dispatch:
+    inputs:
+      py39:
+        description: "Build 3.9"
+        type: boolean
+        default: true
+      py310:
+        description: "Build 3.10"
+        type: boolean
+        default: true
+      py313:
+        description: "Build 3.13"
+        type: boolean
+        default: true
+
+jobs:
+  setup:
+    runs-on: ubuntu-24.04
+    outputs:
+      matrix: ${{ steps.build.outputs.matrix }}
+    steps:
+      - name: Build matrix from inputs
+        id: build
+        run: |
+          versions=()
+          [[ "${{ inputs.py39 }}"  == "true" ]] && versions+=('"3.9"')
+          [[ "${{ inputs.py310 }}" == "true" ]] && versions+=('"3.10"')
+          [[ "${{ inputs.py313 }}" == "true" ]] && versions+=('"3.13"')
+          IFS=,
+          echo "matrix={\"python\":[${versions[*]}]}" >> "$GITHUB_OUTPUT"
+
+  publish:
+    needs: setup
+    if: needs.setup.outputs.matrix != '{"python":[]}'
+    runs-on: ubuntu-24.04
+    strategy:
+      matrix: ${{ fromJSON(needs.setup.outputs.matrix) }}
+    env:
+      DOCKER_BUILDKIT: 1
+      DOCKER_CLI_EXPERIMENTAL: "enabled"
+      PLATFORMS: linux/amd64,linux/arm64
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0  # v7.0.0
+        with:
+          submodules: recursive
+          fetch-depth: 0
+      - name: Login to Docker Hub
+        uses: docker/login-action@650006c6eb7dba73a995cc03b0b2d7f5ca915bee # v4.2.0
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@06116385d9baf250c9f4dcb4858b16962ea869c3 # v4.1.0
+      - name: Set up Docker Buildx
+        id: buildx
+        uses: docker/setup-buildx-action@d7f5e7f509e45cec5c76c4d5afdd7de93d0b3df5 # v4.1.0
+      - name: Available platforms
+        run: echo ${{ steps.buildx.outputs.platforms }}
+      - name: Build and push
+        uses: docker/build-push-action@f9f3042f7e2789586610d6e8b85c8f03e5195baf # v7.2.0
+        with:
+          context: examples/python/hello-flask-python${{ matrix.python }}
+          file: examples/python/hello-flask-python${{ matrix.python }}/Dockerfile
+          tags: |
+            docker.io/danielpacak/python-hello-flask:python${{ matrix.python }}-glibc
+          push: ${{ github.event_name != 'pull_request' }}
+          platforms: ${{ env.PLATFORMS }}
