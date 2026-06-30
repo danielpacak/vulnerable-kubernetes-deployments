@@ -24,6 +24,8 @@ jobs:
     steps:
       - name: Build matrix from inputs
         id: build
+        # Collect only the ticked versions, then emit a `matrix` output the
+        # publish job consumes via fromJSON, e.g. {"python":["3.9","3.13"]}.
         run: |
           versions=()
           [[ "${{ inputs.py39 }}"  == "true" ]] && versions+=('"3.9"')
